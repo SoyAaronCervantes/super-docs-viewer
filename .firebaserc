@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "doc-viewer-1bfd3": {
+      "hosting": {
+        "doc-viewer": [
+          "doc-viewer-1bfd3"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "doc-viewer-1bfd3"
+  }
+}
