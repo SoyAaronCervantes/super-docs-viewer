@@ -1,1 +1,7 @@
-<p>document-list works!</p>
+<div class="container--content">
+  <p class="[ headline-large ]">Documents: </p>
+  <div class="documents">
+    <app-document-card *ngFor="let document of documents" [document]="document"></app-document-card>
+  </div>
+</div>
+
