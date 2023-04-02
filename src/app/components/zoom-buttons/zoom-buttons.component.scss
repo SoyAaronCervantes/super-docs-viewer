@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  position: sticky;
+  gap: 1rem;
+  bottom: 2rem;
+  left: 100%;
+  align-items: flex-end;
+  height: inherit;
+}
+
+.size--text {
+  margin: .5rem;
+}
