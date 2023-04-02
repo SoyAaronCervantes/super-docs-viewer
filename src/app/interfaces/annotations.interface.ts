@@ -7,8 +7,8 @@ interface Position {
 }
 
 export interface Annotations {
+  id: string;
   description: string;
-  document: DocumentReference<DocumentInterface>
   image: string;
   position: Position
 }
