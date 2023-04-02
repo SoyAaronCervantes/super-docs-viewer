@@ -1,1 +1,9 @@
-<p>document works!</p>
+<div class="[ container--document ]" *ngIf="document$ | async as document">
+  <p class="[ headline-large ]">Title 1</p>
+  <img
+    class="[ img ]"
+    alt=""
+    src="assets/img/{{ document.storage?.url }}"
+    [ngStyle]="{ 'inline-size': size + '%' }"/>
+  <app-zoom-buttons [(size)]="size"></app-zoom-buttons>
+</div>

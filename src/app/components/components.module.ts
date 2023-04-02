@@ -4,21 +4,26 @@ import { DocumentCardComponent } from './document-card/document-card.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {RouterModule} from "@angular/router";
+import { ZoomButtonsComponent } from './zoom-buttons/zoom-buttons.component';
+import {MatIconModule} from "@angular/material/icon";
 
 
 
 @NgModule({
   declarations: [
-    DocumentCardComponent
+    DocumentCardComponent,
+    ZoomButtonsComponent
   ],
   imports: [
     CommonModule,
     MatCardModule,
     MatButtonModule,
-    RouterModule
+    RouterModule,
+    MatIconModule
   ],
   exports: [
-    DocumentCardComponent
+    DocumentCardComponent,
+    ZoomButtonsComponent
   ]
 })
 export class ComponentsModule { }
