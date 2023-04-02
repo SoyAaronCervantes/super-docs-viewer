@@ -1,5 +1,9 @@
-export interface Document {
+interface Storage {
+  url: string;
+}
+
+export interface DocumentInterface {
   id: number;
   title: string;
-  annotations: number;
+  storage?: Storage;
 }
