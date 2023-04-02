@@ -96,6 +96,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "doc-viewer:build:production",
+            "firebaseProject": "doc-viewer-1bfd3",
+            "firebaseHostingSite": "doc-viewer-1bfd3"
+          }
         }
       }
     }

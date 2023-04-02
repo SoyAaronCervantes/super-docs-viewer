@@ -332,3 +332,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
