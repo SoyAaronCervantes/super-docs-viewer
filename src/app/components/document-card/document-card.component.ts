@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Document} from "../../interfaces/document.interface";
+import {DocumentInterface} from "../../interfaces/document.interface";
 
 @Component({
   selector: 'app-document-card',
@@ -7,5 +7,5 @@ import {Document} from "../../interfaces/document.interface";
   styleUrls: ['./document-card.component.scss']
 })
 export class DocumentCardComponent {
-  @Input() document: Document | null = null;
+  @Input() document: DocumentInterface | null = null;
 }
