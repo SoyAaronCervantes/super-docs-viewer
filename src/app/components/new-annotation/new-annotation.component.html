@@ -1,3 +1,61 @@
-<form #annotationForm="ngForm">
-  <input type="file" name="avatar" accept="image/png, image/jpeg"/>
+<p class="[ headline-medium ]">New Annotation</p>
+
+<img class="[ image--preview ]" alt="Preview Image" #imageElement>
+
+<form
+  [formGroup]="annotationFormGroup"
+  class="[ form--container ]"
+  (ngSubmit)="submit(annotationFormGroup)">
+
+
+  <mat-form-field
+    appearance="outline"
+    color="primary">
+    <mat-label>Add an image</mat-label>
+    <ngx-mat-file-input
+      #fileInput
+      formControlName="file"
+      accept="image/jpg,image/png,image/jpeg"
+      placeholder="Ex: Profile image or cover photo"
+      (ngModelChange)="showPreviewImage($event)">
+    </ngx-mat-file-input>
+
+    <button
+      mat-icon-button
+      matSuffix
+      *ngIf="!fileInput.empty"
+      (click)="fileInput.clear($event)">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field
+    appearance="outline"
+    color="primary">
+    <mat-label>Add a title</mat-label>
+    <input
+      matInput
+      placeholder="Ex: New annotation title"
+      formControlName="title"
+      required>
+  </mat-form-field>
+
+  <mat-form-field
+    appearance="outline"
+    color="primary">
+    <mat-label>Leave a description</mat-label>
+    <textarea
+      matInput
+      formControlName="description"
+      placeholder="Ex. It makes me feel...">
+    </textarea>
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="!annotationFormGroup.valid">
+    Add annotation
+  </button>
 </form>
