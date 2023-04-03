@@ -1,4 +1,4 @@
-import {Component, ElementRef, Renderer2, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, Renderer2, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {FileInput} from "ngx-material-file-input";
 import {AnnotationForm} from "../../interfaces/annotation-form";
@@ -7,6 +7,7 @@ import {NewAnnotation} from "../../interfaces/annotations.interface";
 import {AnnotationsFirestoreService} from "../../services/firebase/annotations/annotations-firestore.service";
 import {FileInputImageService} from "../../services/file-input/file-input-image.service";
 import {ImagesStorageService} from "../../services/firebase/images/images-storage.service";
+import {MatSidenav} from "@angular/material/sidenav";
 
 @Component({
   selector: 'app-new-annotation',
@@ -14,8 +15,10 @@ import {ImagesStorageService} from "../../services/firebase/images/images-storag
   styleUrls: ['./new-annotation.component.scss']
 })
 export class NewAnnotationComponent {
+  @Input()
+    sidenav: MatSidenav | null = null;
   @ViewChild('imageElement', { static: false })
-  imageElement: ElementRef<HTMLImageElement> | undefined;
+    imageElement: ElementRef<HTMLImageElement> | undefined;
 
   annotationFormGroup = this.fb.group({
     title: ['', Validators.required],
