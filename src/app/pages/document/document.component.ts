@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {DocumentsFirestoreService} from "../../services/firebase/documents/documents-firestore.service";
 import {AnnotationsFirestoreService} from "../../services/firebase/annotations/annotations-firestore.service";
 
