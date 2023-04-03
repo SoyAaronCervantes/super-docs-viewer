@@ -1,14 +1,27 @@
-<div class="[ container--document ]" *ngIf="document$ | async as document">
-  <mat-toolbar class="[ surface on-surface-text ] [ toolbar ]">
-    <a mat-icon-button routerLink="/documents" class="[ on-surface-text ]">
-      <mat-icon>arrow_back</mat-icon>
-    </a>
-    <p class="[ headline-large ] [ toolbar--title ]">Title 1</p>
-  </mat-toolbar>
-  <img
-    class="[ img ]"
-    alt=""
-    src="assets/img/{{ document.storage?.url }}"
-    [ngStyle]="{ 'inline-size': size + '%' }"/>
-  <app-zoom-buttons [(size)]="size"></app-zoom-buttons>
-</div>
+<mat-sidenav-container class="[ surface on-surface-text ]" autosize>
+
+  <mat-sidenav #sidenav mode="side" position="end">
+    <div class="[ sidenav--container ]">
+      <p>Something here</p>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <div class="[ container--document ]" *ngIf="document$ | async as document">
+
+      <mat-toolbar class="[ toolbar ] [ surface on-surface-text ]">
+        <app-document-toolbar-content [document]="document" [sidenav]="sidenav"></app-document-toolbar-content>
+      </mat-toolbar>
+
+      <img
+        class="[ img ]"
+        alt=""
+        src="assets/img/{{ document.storage?.url }}"
+        [ngStyle]="{ 'inline-size': size + '%' }"/>
+      <app-zoom-buttons [(size)]="size"></app-zoom-buttons>
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

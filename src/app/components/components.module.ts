@@ -6,13 +6,15 @@ import {MatButtonModule} from "@angular/material/button";
 import {RouterModule} from "@angular/router";
 import { ZoomButtonsComponent } from './zoom-buttons/zoom-buttons.component';
 import {MatIconModule} from "@angular/material/icon";
+import { DocumentToolbarContentComponent } from './document-toolbar-content/document-toolbar-content.component';
 
 
 
 @NgModule({
   declarations: [
     DocumentCardComponent,
-    ZoomButtonsComponent
+    ZoomButtonsComponent,
+    DocumentToolbarContentComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import {MatIconModule} from "@angular/material/icon";
   ],
   exports: [
     DocumentCardComponent,
-    ZoomButtonsComponent
+    ZoomButtonsComponent,
+    DocumentToolbarContentComponent
   ]
 })
 export class ComponentsModule { }

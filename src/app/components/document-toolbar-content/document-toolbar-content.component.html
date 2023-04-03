@@ -1,0 +1,9 @@
+<a mat-icon-button routerLink="/documents" class="[ on-surface-text ]">
+  <mat-icon>arrow_back</mat-icon>
+</a>
+
+<p class="[ headline-large ] [ toolbar--title ]">{{ document?.title }}</p>
+
+<button mat-mini-fab color="primary" class="[ button ]" (click)="sidenav?.toggle()">
+  <mat-icon>add_comment</mat-icon>
+</button>
