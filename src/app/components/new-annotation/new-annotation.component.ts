@@ -58,7 +58,7 @@ export class NewAnnotationComponent {
     if (formData && newAnnotation.image) {
       this.imageStorageService.uploadImage(formData.formData, newAnnotation.image);
     }
-
+    formGroup.reset();
   }
 
   private getDocumentIdFromUrl() {
