@@ -7,8 +7,11 @@ interface Position {
 }
 
 export interface Annotations {
-  id: string;
-  description: string;
-  image: string;
+  id?: string;
+  title: string;
   position: Position
+  description?: string | null;
+  image?: string | null;
 }
+
+export type NewAnnotation = Omit<Annotations, 'id'>;
