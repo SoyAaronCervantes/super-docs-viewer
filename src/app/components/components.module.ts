@@ -7,6 +7,9 @@ import {RouterModule} from "@angular/router";
 import { ZoomButtonsComponent } from './zoom-buttons/zoom-buttons.component';
 import {MatIconModule} from "@angular/material/icon";
 import { DocumentToolbarContentComponent } from './document-toolbar-content/document-toolbar-content.component';
+import { NewAnnotationComponent } from './new-annotation/new-annotation.component';
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -14,19 +17,23 @@ import { DocumentToolbarContentComponent } from './document-toolbar-content/docu
   declarations: [
     DocumentCardComponent,
     ZoomButtonsComponent,
-    DocumentToolbarContentComponent
+    DocumentToolbarContentComponent,
+    NewAnnotationComponent
   ],
   imports: [
     CommonModule,
     MatCardModule,
     MatButtonModule,
+    MatInputModule,
     RouterModule,
+    FormsModule,
     MatIconModule
   ],
   exports: [
     DocumentCardComponent,
     ZoomButtonsComponent,
-    DocumentToolbarContentComponent
+    DocumentToolbarContentComponent,
+    NewAnnotationComponent
   ]
 })
 export class ComponentsModule { }
