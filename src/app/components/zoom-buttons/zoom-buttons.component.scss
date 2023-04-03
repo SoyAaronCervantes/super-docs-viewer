@@ -1,13 +1,18 @@
 :host {
+  position: fixed;
+  inset-inline-end: 3rem;
+  inset-block-end: 3rem;
+}
+
+.container--zoom-buttons {
   display: flex;
   flex-direction: column;
-  position: sticky;
   gap: .5rem;
-  bottom: 2rem;
-  left: 100%;
   align-items: center;
   justify-content: flex-end;
-  height: inherit;
+  padding: 1rem;
+  border-radius: .5rem;
+  background-color: rgba(63, 81, 181, 0.5);
 }
 
 .container--buttons {
