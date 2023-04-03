@@ -4,7 +4,7 @@
 
 <p class="[ headline-large ] [ toolbar--title ]">{{ document?.title }}</p>
 
-<button mat-stroked-button color="primary" class="[ button ]" (click)="sidenav?.toggle()">
-  New Annotation
-  <mat-icon>add_comment</mat-icon>
+<button mat-stroked-button color="primary" class="[ annotation-button ]" (click)="sidenav?.toggle()">
+  <span class="[ annotation-text ]">New Annotation</span>
+  <mat-icon class="[ annotation-icon ]">add_comment</mat-icon>
 </button>
