@@ -1,5 +1,10 @@
 <div class="[ container--document ]" *ngIf="document$ | async as document">
-  <p class="[ headline-large ]">Title 1</p>
+  <mat-toolbar class="[ surface on-surface-text ] [ toolbar ]">
+    <a mat-icon-button routerLink="/documents" class="[ on-surface-text ]">
+      <mat-icon>arrow_back</mat-icon>
+    </a>
+    <p class="[ headline-large ] [ toolbar--title ]">Title 1</p>
+  </mat-toolbar>
   <img
     class="[ img ]"
     alt=""

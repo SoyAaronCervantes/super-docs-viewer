@@ -1,11 +1,18 @@
 :host {
   display: flex;
+  flex-direction: column;
   position: sticky;
-  gap: 1rem;
+  gap: .5rem;
   bottom: 2rem;
   left: 100%;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: flex-end;
   height: inherit;
+}
+
+.container--buttons {
+  display: flex;
+  gap: 1rem;
 }
 
 .size--text {

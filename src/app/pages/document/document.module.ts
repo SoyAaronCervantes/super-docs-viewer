@@ -5,6 +5,7 @@ import { DocumentComponent } from './document.component';
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {ComponentsModule} from "../../components/components.module";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
     CommonModule,
     MatButtonModule,
     MatIconModule,
+    MatToolbarModule,
     RouterModule.forChild(routes),
     ComponentsModule,
   ]
