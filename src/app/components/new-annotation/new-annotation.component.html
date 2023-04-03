@@ -1,5 +1,11 @@
-<p class="[ headline-medium ]">New Annotation</p>
-
+<div class="container-title">
+  <p class="[ headline-small ] [ title ]">New Annotation</p>
+  <button
+    mat-icon-button
+    (click)="sidenav?.close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
 <img class="[ image--preview ]" alt="Preview Image" #imageElement>
 
 <form

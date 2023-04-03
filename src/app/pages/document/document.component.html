@@ -1,7 +1,7 @@
 <mat-sidenav-container class="[ surface on-surface-text ]" autosize>
 
   <mat-sidenav #sidenav mode="side" position="end">
-    <app-new-annotation></app-new-annotation>
+    <app-new-annotation [sidenav]="sidenav"></app-new-annotation>
   </mat-sidenav>
 
   <mat-sidenav-content>

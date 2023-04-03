@@ -19,3 +19,15 @@
   align-self: center;
   border-radius: 0.5rem;
 }
+
+.container-title {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+}
