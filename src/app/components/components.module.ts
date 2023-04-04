@@ -15,6 +15,7 @@ import { ZoomButtonsComponent } from './zoom-buttons/zoom-buttons.component';
 import { DocumentToolbarContentComponent } from './document-toolbar-content/document-toolbar-content.component';
 import { NewAnnotationComponent } from './new-annotation/new-annotation.component';
 import { DocumentCardComponent } from './document-card/document-card.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DocumentCardComponent } from './document-card/document-card.component';
     MatCardModule,
     MatButtonModule,
     MatInputModule,
+    MatSnackBarModule,
     MaterialFileInputModule,
     RouterModule,
     FormsModule,

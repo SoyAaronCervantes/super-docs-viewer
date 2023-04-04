@@ -8,6 +8,7 @@ import {AnnotationsFirestoreService} from "../../services/firebase/annotations/a
 import {FileInputImageService} from "../../services/file-input/file-input-image.service";
 import {ImagesStorageService} from "../../services/firebase/images/images-storage.service";
 import {MatSidenav} from "@angular/material/sidenav";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-new-annotation',
@@ -33,9 +34,11 @@ export class NewAnnotationComponent {
     private fb: FormBuilder,
     private imageStorageService: ImagesStorageService,
     private renderer: Renderer2,
+    private matSnackBar: MatSnackBar,
   ) {}
 
   showPreviewImage(event: FileInput) {
+    if (event === null) return;
     const url = this.fileInputImageService.getObjectUrl(event);
     this.renderer.setProperty(this.imageElement?.nativeElement, 'src', url);
   }
@@ -61,6 +64,9 @@ export class NewAnnotationComponent {
     if (formData && newAnnotation.image) {
       this.imageStorageService.uploadImage(formData.formData, newAnnotation.image);
     }
+
+    this.matSnackBar.open('Annotation created', 'Close');
+
     formGroup.reset();
   }
 
