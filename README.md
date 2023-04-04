@@ -1,51 +1,52 @@
 # DocViewer
-DocViewer es una applicación que permite ver documentos en PNG.
-La página está hecha con Angular, Angular Material y Firebase, donde se ocuparon únicamente
-3 servicios de Firebase: Firestore, Storage y Hosting.
+
+DocViewer is an application that allows you to view documents in PNG.
+The website is made with Angular, Angular Material and Firebase, where I only use 3 services:
+Firestore, Storage and Hosting.
 
 # Solution
-La forma de solucionar el Task fue pensado en 2 partes:
- - La primera parte fue crear una aplicación que el usuario pudiera navegar entre los documentos
-y desde esa lista poder navegar a un documento en específico.
- - La segunda parte fue hacer que el usuario pudiera guardar y agregar nuevas anotaciones
-en el documento. Aquí tuve una idea más hacia el desarrollo movil y me base en la navegación de Google Maps.
-Ya que esta ocupa muchos botones FAB, para interacturar con la applicación, ya sea en Webapp o Mobile App
+The way we tried to solve the task was thought in 2 parts:
+ - The first part was to create an application that the user could navigate between the documents
+and from that list could navigate to a specific document.
+ - The second part was to make the user able to save and add new annotations in the document.
+ Here, I had an idea more towards mobile development and I based myself on the navigation of Google Maps,
+since it uses many FAB buttons to interact with the application, whether in Webapp or Mobile App.
  
 # Pros & Cons
 
 ## Pros
- - La aplicación al estar conectada a Firestore, tenemos una actualización inmediata de las nuevas annotaciones,
-esto también nos da una ventaja, porque solo necesitamos el Id de documento al que estamos agregando las anotaciones,
-para poder agregar una nueva.
- - Las anotaciones se pueden integrar con imágenes y texto, la idea era poder hacer las dos funcionalidades en una misma anotación.
-Al conocer las referencias de las imagenes de Firebase Storage, es más fácil obtener las imagenes desde ahí
- - Las imagenes / documentes se les puede hacer zoom in y zoom out.
+  - The application being connected to Firestore, we have an continues communication and update of the new annotations.
+This is a big advantage, because we only need the document Id to know, where we are adding a new annotations.
 
+  - The annotations can be integrated with images and text, the idea was to be able to do both functionalities in the same annotation.
+Since we know the references of the Firebase Storage images, it is easier to obtain the images from there
+  - The images / documents can be zoomed in and zoomed out. 
+ 
 ## Cons
-En los cons, no era dificil la implementación, pero si era un poco tedioso.
-Eso, sumando que me enfermé, no me dió el tiempo necesario para poder acabar la aplicación.
+It was not difficult to implement, but it was a little tedious.
+Also, I got sick, so I didn't have enough time to finish the application.
 
-A continuación enlisto, las cosas que faltaron en la aplicación
- - No se puede visualizar las anotaciones
- - No se puede editar las anotaciones
- - No se puede eliminar las anotaciones
- - No se puede hacer el offset entre documentos y tampoco la paginación
-
+I list below, the things that were missing in the application
+ - You can't view the annotations
+ - You can't edit the annotations
+ - You can't delete the annotations
+ - You can't make the offset between documents and also the pagination
 
 ## Challenges
- - Dentro de lo más dificil fue la implementación de las anotaciones con imagenes,
-nunca había trabajado con los FormData y Angular Material no es muy friendly para ese tipo de campos.
-Entonces tuve que utilizar una biblioteca de terceros, para poder apoyarme a la hora de subir archivos.
+  - One of the most complicated things was to implement the annotations with images,
+I've never worked with FormData and Angular Material is not very friendly for this type of fields.
+I had to use a third-party library, to help me when uploading files.
 
-
- - El otro challenge fue Angular Material y sus temas, no recordaba lo dificil que era implementar un color,
-o querer obtener el valor de una variable. Tuve que pasar el proyecto de CSS a SCSS a la mitad del desarrollo.
-Al final, obte por ocupar el Builder de Material 3, pero no pude implementar el Dark Mode, porque no me dió tiempo,
-y aparte te dan los archivos en CSS, para que sea una fácil implementación, pero yo los necesitaba en SCSS, por Angular Material
+  - The other challenge was Angular Material and its themes, I didn't remember how difficult it was to implement a color,
+or try to get a variable value. I had to move from CSS to SCSS, halfway through the development.
+At the end, I decided to use Material 3 Builder, but I couldn't implement the Dark Mode, because I didn't have enough time.
+and it gives you each css file as a module, and I had to convert it to SCSS to use the same structure that angular requires/
 
 # Roadmap
-  - Mostrar las annotaciones en la imagen
-  - Obtener las coordenadas, cuando se hace click dentro de la imagen
-  - Escalar las coordenadas, para que se ajusten al zoom y por default, siempre almacenar, las coordenadas cuando el tamaño de la imagen es 100%
-  - Hacer el offset entre documentos
-  - Implementar el Dark Mode
+  - Show the annotations in the image
+  - Get the coordinates, when you click inside the image
+  - Scale the coordinates, so that they fit the zoom.
+  - Always store the coords based on original image size
+  - Implement the edit and delete annotations
+  - Implement the pagination
+  - Implement the dark mode
