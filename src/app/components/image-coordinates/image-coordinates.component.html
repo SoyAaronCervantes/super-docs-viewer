@@ -1,0 +1,14 @@
+<button mat-icon-button>
+  <mat-icon>comment</mat-icon>
+</button>
+
+<img
+  class="[ img ]"
+  alt=""
+  src="assets/img/{{ document?.storage?.url }}"
+  [ngStyle]="{
+    'border': matSideNavOpened ? '2px dashed #000' : 'none'
+  }"
+  cdkDrag
+  cdkDragDisabled="true"
+  />

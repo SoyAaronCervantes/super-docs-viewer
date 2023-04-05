@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 
 import {RouterModule} from "@angular/router";
 
@@ -16,31 +16,40 @@ import { DocumentToolbarContentComponent } from './document-toolbar-content/docu
 import { NewAnnotationComponent } from './new-annotation/new-annotation.component';
 import { DocumentCardComponent } from './document-card/document-card.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { ImageCoordinatesComponent } from './image-coordinates/image-coordinates.component';
+import {DragDropModule} from "@angular/cdk/drag-drop";
+import { AnnotationCardComponent } from './annotation-card/annotation-card.component';
 
 @NgModule({
   declarations: [
     DocumentCardComponent,
     ZoomButtonsComponent,
     DocumentToolbarContentComponent,
-    NewAnnotationComponent
+    NewAnnotationComponent,
+    ImageCoordinatesComponent,
+    AnnotationCardComponent
   ],
   imports: [
     CommonModule,
     MatCardModule,
     MatButtonModule,
+    DragDropModule,
     MatInputModule,
     MatSnackBarModule,
     MaterialFileInputModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    NgOptimizedImage
   ],
   exports: [
     DocumentCardComponent,
     ZoomButtonsComponent,
     DocumentToolbarContentComponent,
-    NewAnnotationComponent
+    NewAnnotationComponent,
+    ImageCoordinatesComponent,
+    AnnotationCardComponent
   ]
 })
 export class ComponentsModule { }
