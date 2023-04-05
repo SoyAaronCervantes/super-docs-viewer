@@ -5,7 +5,7 @@ export interface Annotation {
   title: string;
   position: Point;
   description?: string | null;
-  image?: string | null;
+  image: string | null;
 }
 
 export type NewAnnotation = Omit<Annotation, 'id'>;

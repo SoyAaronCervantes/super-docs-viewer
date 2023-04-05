@@ -15,7 +15,7 @@ import {
 })
 export class DocumentComponent {
 
-  @ViewChild('coordinatesContainer') elementRef!: ElementRef<HTMLHtmlElement>;
+  @ViewChild('coordinatesContainer', { static: true }) elementRef!: ElementRef<HTMLHtmlElement>;
   size = 100;
 
   document$ = this.documentsFirestoreService.document$(this.getDocumentIdFromUrl());

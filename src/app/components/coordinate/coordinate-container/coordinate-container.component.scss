@@ -10,7 +10,19 @@
 }
 
 .annotations--content {
-  display: flex;
   inline-size: fit-content;
   block-size: fit-content;
 }
+
+.annotations--content > .annotation--card {
+  display: none;
+}
+
+.annotations--content:hover {
+  display: flex;
+
+  & > .annotation--card {
+    display: flex;
+  }
+}
+

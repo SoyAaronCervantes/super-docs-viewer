@@ -7,6 +7,7 @@ import {CdkDrag} from "@angular/cdk/drag-drop";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {AnnotationModule} from "../annotation/annotation.module";
+import {MatCardModule} from "@angular/material/card";
 
 
 
@@ -24,7 +25,8 @@ import {AnnotationModule} from "../annotation/annotation.module";
     CdkDrag,
     MatButtonModule,
     MatIconModule,
-    AnnotationModule
+    AnnotationModule,
+    MatCardModule
   ]
 })
 export class CoordinateModule { }

@@ -1,3 +1,7 @@
 .annotation--card {
   inline-size: fit-content;
+
+  &--avatar {
+    margin-bottom: 0;
+  }
 }

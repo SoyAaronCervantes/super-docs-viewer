@@ -10,7 +10,8 @@
     *ngFor="let annotation of annotations;"
     cdkDrag
     [cdkDragBoundary]="elementRef"
-    [cdkDragFreeDragPosition]="annotation.position">
+    [cdkDragFreeDragPosition]="annotation.position"
+    (mouseover)="getImageUrl(annotation)">
 
     <app-coordinate-annotation
       class="[ annotation--button ]"
@@ -20,7 +21,7 @@
 
     <app-annotation-card
       class="[ annotation--card ]"
-      #annotationCard
+      [url]="(url$ | async) || 'https://via.placeholder.com/150'"
       [annotation]="annotation">
     </app-annotation-card>
   </div>

@@ -7,6 +7,6 @@ import {Annotation} from "../../../interfaces/annotations.interface";
   styleUrls: ['./annotation-card.component.scss']
 })
 export class AnnotationCardComponent {
-  @Input() annotation!: Annotation;
-  showCard = false;
+  @Input() annotation: Annotation;
+  @Input() url: string;
 }
