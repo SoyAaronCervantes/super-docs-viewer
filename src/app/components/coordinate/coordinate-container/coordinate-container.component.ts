@@ -15,7 +15,6 @@ export class CoordinateContainerComponent {
   @Input() sidenav: MatSidenav;
   @Input() size: number;
   @Input() annotations: Annotation[];
-  @Input() elementRef: ElementRef<HTMLHtmlElement>;
   url$: Observable<string> = EMPTY;
 
   constructor(

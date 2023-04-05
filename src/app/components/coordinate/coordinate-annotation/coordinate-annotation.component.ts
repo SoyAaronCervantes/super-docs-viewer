@@ -8,6 +8,5 @@ import {CoordinateContainerComponent} from "../coordinate-container/coordinate-c
   styleUrls: ['./coordinate-annotation.component.scss']
 })
 export class CoordinateAnnotationComponent {
-  @Input() elementRef!: ElementRef<HTMLHtmlElement>;
   @Input() annotation!: Annotation;
 }

@@ -15,6 +15,8 @@ import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { appReducer, metaReducers } from './store/reducers/app.reducer';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -25,14 +27,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
-
-    StoreModule.forRoot({}, {}),
-    StoreRouterConnectingModule.forRoot(),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    StoreModule.forRoot(appReducer, { metaReducers }),
   ],
   providers: [],
   bootstrap: [AppComponent]
