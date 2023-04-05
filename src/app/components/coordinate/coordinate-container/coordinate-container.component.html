@@ -1,4 +1,5 @@
 <app-coordinate-image
+  [size]="size"
   [sidenav]="sidenav"
   [document]="document">
 </app-coordinate-image>
@@ -9,14 +10,13 @@
     class="[ annotations--content ]"
     *ngFor="let annotation of annotations;"
     cdkDrag
-    [cdkDragBoundary]="elementRef"
+    [cdkDragBoundary]="'.coordinates--container'"
     [cdkDragFreeDragPosition]="annotation.position"
     (mouseover)="getImageUrl(annotation)">
 
     <app-coordinate-annotation
       class="[ annotation--button ]"
-      [annotation]="annotation"
-      [elementRef]="elementRef">
+      [annotation]="annotation">
     </app-coordinate-annotation>
 
     <app-annotation-card

@@ -9,9 +9,10 @@
 <img class="[ image--preview ]" alt="Preview Image" #imageElement>
 
 <form
+  *ngIf="coords$ | async as coords"
   [formGroup]="annotationFormGroup"
   class="[ form--container ]"
-  (ngSubmit)="submit(annotationFormGroup)">
+  (ngSubmit)="submit(annotationFormGroup, coords)">
 
 
   <mat-form-field
@@ -56,6 +57,37 @@
       placeholder="Ex. It makes me feel...">
     </textarea>
   </mat-form-field>
+
+  <div class="[ coordinate--fields ]">
+
+    <mat-form-field
+      appearance="outline"
+      color="primary">
+      <mat-label>X:</mat-label>
+      <input
+        readonly="true"
+        matInput
+        type="number"
+        [valueAsNumber]="coords.x"
+        placeholder="Position X"
+        formControlName="positionX"
+        required>
+    </mat-form-field>
+
+    <mat-form-field
+      appearance="outline"
+      color="primary">
+      <mat-label>Y:</mat-label>
+      <input
+        readonly="true"
+        matInput
+        [valueAsNumber]="coords.y"
+        type="number"
+        placeholder="Position Y"
+        formControlName="positionY"
+        required>
+    </mat-form-field>
+  </div>
 
   <button
     mat-raised-button

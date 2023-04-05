@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -12,6 +12,11 @@ import { AppComponent } from './app.component';
 import {AppRoutesModule} from "./app-routes.module";
 
 import { environment } from '../environments/environment';
+import { StoreModule } from '@ngrx/store';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { appReducer, metaReducers } from './store/reducers/app.reducer';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -24,7 +29,9 @@ import { environment } from '../environments/environment';
     MatToolbarModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    StoreModule.forRoot(appReducer, { metaReducers }),
   ],
   providers: [],
   bootstrap: [AppComponent]

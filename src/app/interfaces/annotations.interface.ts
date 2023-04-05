@@ -1,10 +1,10 @@
 import {Point} from "@angular/cdk/drag-drop";
 
 export interface Annotation {
-  id?: string;
+  id: string | null;
   title: string;
   position: Point;
-  description?: string | null;
+  description: string | null;
   image: string | null;
 }
 
