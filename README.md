@@ -27,9 +27,7 @@ It was not difficult to implement, but it was a little tedious.
 Also, I got sick, so I didn't have enough time to finish the application.
 
 I list below, the things that were missing in the application
- - You can't view the annotations
  - You can't edit the annotations
- - You can't delete the annotations
  - You can't make the offset between documents and also the pagination
 
 ## Challenges
@@ -43,10 +41,7 @@ At the end, I decided to use Material 3 Builder, but I couldn't implement the Da
 and it gives you each css file as a module, and I had to convert it to SCSS to use the same structure that angular requires/
 
 # Roadmap
-  - Show the annotations in the image
-  - Get the coordinates, when you click inside the image
   - Scale the coordinates, so that they fit the zoom.
-  - Always store the coords based on original image size
-  - Implement the edit and delete annotations
+  - Implement the edit annotations
   - Implement the pagination
   - Implement the dark mode
