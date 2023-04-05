@@ -13,6 +13,7 @@ import {EMPTY, Observable} from "rxjs";
 export class CoordinateContainerComponent {
   @Input() document: DocumentInterface;
   @Input() sidenav: MatSidenav;
+  @Input() size: number;
   @Input() annotations: Annotation[];
   @Input() elementRef: ElementRef<HTMLHtmlElement>;
   url$: Observable<string> = EMPTY;

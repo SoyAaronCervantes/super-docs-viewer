@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, HostListener, Input} from '@angular/core';
 import {MatSidenav} from "@angular/material/sidenav";
 import {DocumentInterface} from "../../../interfaces/document.interface";
 
@@ -8,6 +8,21 @@ import {DocumentInterface} from "../../../interfaces/document.interface";
   styleUrls: ['./coordinate-image.component.scss']
 })
 export class CoordinateImageComponent {
-  @Input() sidenav!: MatSidenav;
-  @Input() document!: DocumentInterface
+  @HostListener('document:click', ['$event'])
+  handleClick(event: MouseEvent) {
+    const target = event.target as HTMLImageElement;
+    if (!target) return;
+
+    if (target.classList.contains('coordinate-image')) {
+
+      // Get the x and y coordinates of the click
+      const x = event.offsetX / target.offsetWidth * 100;
+      const y = event.offsetY / target.offsetHeight * 100;
+
+    }
+  }
+
+  @Input() sidenav: MatSidenav;
+  @Input() document: DocumentInterface
+  @Input() size: number;
 }
