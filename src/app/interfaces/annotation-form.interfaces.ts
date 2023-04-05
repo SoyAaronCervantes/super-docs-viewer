@@ -4,4 +4,6 @@ export interface AnnotationFormInterfaces {
   title: string;
   description?: string;
   file?: FileInput;
+  positionY: number;
+  positionX: number;
 }
