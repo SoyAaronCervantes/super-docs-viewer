@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Annotation} from "../../interfaces/annotations.interface";
+import {Annotation} from "../../../interfaces/annotations.interface";
 
 @Component({
   selector: 'app-annotation-card',
@@ -7,6 +7,6 @@ import {Annotation} from "../../interfaces/annotations.interface";
   styleUrls: ['./annotation-card.component.scss']
 })
 export class AnnotationCardComponent {
-  @Input() annotation: Annotation = {} as Annotation;
+  @Input() annotation!: Annotation;
   showCard = false;
 }

@@ -1,10 +1,4 @@
-<mat-card
-  [id]="annotation.id" class="[ annotation--card ]"
-  [ngStyle]="{
-    display: showCard ? 'flex' : 'none',
-    'inset-inline-start': annotation.position.x + 48 + 'px',
-    'inset-block-start': annotation.position.y + 48 + 'px',
-  }">
+<mat-card [id]="annotation.id" class="[ annotation--card ]">
   <mat-card-header>
     <img
       [ngSrc]="annotation.image ?? 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'"

@@ -1,0 +1,16 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.annotations--container {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.annotations--content {
+  display: flex;
+  inline-size: fit-content;
+  block-size: fit-content;
+}
