@@ -1,0 +1,28 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.annotations--container {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.annotations--content {
+  inline-size: fit-content;
+  block-size: fit-content;
+}
+
+.annotations--content > .annotation--card {
+  display: none;
+}
+
+.annotations--content:hover {
+  display: flex;
+
+  & > .annotation--card {
+    display: flex;
+  }
+}
+

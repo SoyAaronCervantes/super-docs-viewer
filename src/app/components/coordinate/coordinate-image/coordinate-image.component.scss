@@ -1,0 +1,11 @@
+:host {
+  grid-column: 1;
+  grid-row: 1;
+  inline-size: 100%;
+}
+
+.img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}

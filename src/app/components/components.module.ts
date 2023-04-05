@@ -1,46 +1,38 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 
 import {RouterModule} from "@angular/router";
-
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
-import {MatInputModule} from "@angular/material/input";
-import {MaterialFileInputModule} from "ngx-material-file-input";
 
 import { ZoomButtonsComponent } from './zoom-buttons/zoom-buttons.component';
 import { DocumentToolbarContentComponent } from './document-toolbar-content/document-toolbar-content.component';
-import { NewAnnotationComponent } from './new-annotation/new-annotation.component';
 import { DocumentCardComponent } from './document-card/document-card.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {DragDropModule} from "@angular/cdk/drag-drop";
 
 @NgModule({
   declarations: [
     DocumentCardComponent,
     ZoomButtonsComponent,
     DocumentToolbarContentComponent,
-    NewAnnotationComponent
   ],
   imports: [
     CommonModule,
     MatCardModule,
     MatButtonModule,
-    MatInputModule,
+    DragDropModule,
     MatSnackBarModule,
-    MaterialFileInputModule,
     RouterModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    NgOptimizedImage
   ],
   exports: [
     DocumentCardComponent,
     ZoomButtonsComponent,
-    DocumentToolbarContentComponent,
-    NewAnnotationComponent
+    DocumentToolbarContentComponent
   ]
 })
 export class ComponentsModule { }

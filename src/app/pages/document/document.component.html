@@ -12,14 +12,20 @@
         <app-document-toolbar-content [document]="document" [sidenav]="sidenav"></app-document-toolbar-content>
       </mat-toolbar>
 
-      <img
-        class="[ img ]"
-        alt=""
-        src="assets/img/{{ document.storage?.url }}"
-        [ngStyle]="{ 'inline-size': size + '%' }"/>
+      <app-coordinate-container
+        #coordinatesContainer
+        [ngStyle]="{ 'inline-size': size + '%' }"
+        [document]="document"
+        [sidenav]="sidenav"
+        [elementRef]="elementRef"
+        [annotations]="(annotations$ | async) || []"
+        class="[ coordinates--container ]">
+      </app-coordinate-container>
+
       <app-zoom-buttons [(size)]="size"></app-zoom-buttons>
+
     </div>
 
-  </mat-sidenav-content>
+  </mat-sidenav-content>\
 
 </mat-sidenav-container>

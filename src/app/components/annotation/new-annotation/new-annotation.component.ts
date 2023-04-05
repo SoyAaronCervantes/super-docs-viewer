@@ -1,12 +1,12 @@
 import {Component, ElementRef, Input, Renderer2, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {FileInput} from "ngx-material-file-input";
-import {AnnotationForm} from "../../interfaces/annotation-form";
+import {AnnotationFormInterfaces} from "../../../interfaces/annotation-form.interfaces";
 import {ActivatedRoute} from "@angular/router";
-import {NewAnnotation} from "../../interfaces/annotations.interface";
-import {AnnotationsFirestoreService} from "../../services/firebase/annotations/annotations-firestore.service";
-import {FileInputImageService} from "../../services/file-input/file-input-image.service";
-import {ImagesStorageService} from "../../services/firebase/images/images-storage.service";
+import {NewAnnotation} from "../../../interfaces/annotations.interface";
+import {AnnotationsFirestoreService} from "../../../services/firebase/annotations/annotations-firestore.service";
+import {FileInputImageService} from "../../../services/file-input/file-input-image.service";
+import {ImagesStorageService} from "../../../services/firebase/images/images-storage.service";
 import {MatSidenav} from "@angular/material/sidenav";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
@@ -44,7 +44,7 @@ export class NewAnnotationComponent {
   }
 
   submit(formGroup: FormGroup) {
-    const { title, description, file } = formGroup.value as AnnotationForm;
+    const { title, description, file } = formGroup.value as AnnotationFormInterfaces;
 
     const formData = file ? this.fileInputImageService.createFormData(file) : null;
     const documentId = this.getDocumentIdFromUrl()!!;

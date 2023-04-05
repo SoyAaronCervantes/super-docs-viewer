@@ -1,7 +1,10 @@
 :host {
-  position: fixed;
-  inset-inline-end: 3rem;
-  inset-block-end: 3rem;
+  position: sticky;
+  inset-inline-start: 100%;
+  inset-block-end: 5%;
+  display: flex;
+  height: inherit;
+  align-items: flex-end;
 }
 
 .container--zoom-buttons {
