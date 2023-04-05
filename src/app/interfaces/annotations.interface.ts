@@ -1,17 +1,11 @@
-import {DocumentInterface} from "./document.interface";
-import {DocumentReference} from "@angular/fire/compat/firestore";
+import {Point} from "@angular/cdk/drag-drop";
 
-interface Position {
-  x: number;
-  y: number;
-}
-
-export interface Annotations {
+export interface Annotation {
   id?: string;
   title: string;
-  position: Position
+  position: Point;
   description?: string | null;
   image?: string | null;
 }
 
-export type NewAnnotation = Omit<Annotations, 'id'>;
+export type NewAnnotation = Omit<Annotation, 'id'>;
