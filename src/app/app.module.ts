@@ -13,10 +13,10 @@ import {AppRoutesModule} from "./app-routes.module";
 
 import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducer, metaReducers } from './store/reducers/app.reducer';
-import {RouterModule} from "@angular/router";
+import {AnnotationStoreModule} from "./store/annotation/annotation-store.module";
+import {EffectsModule, EffectsRootModule} from "@ngrx/effects";
 
 @NgModule({
   declarations: [
@@ -30,8 +30,10 @@ import {RouterModule} from "@angular/router";
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
+    StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    StoreModule.forRoot(appReducer, { metaReducers }),
+    EffectsModule.forRoot([]),
+    AnnotationStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
