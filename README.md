@@ -20,16 +20,16 @@ This is a big advantage, because we only need the document Id to know, where we 
 
   - The annotations can be integrated with images and text, the idea was to be able to do both functionalities in the same annotation.
 Since we know the references of the Firebase Storage images, it is easier to obtain the images from there
-  - The images / documents can be zoomed in and zoomed out. 
+
+  - The images / documents can be zoomed in and zoomed out.
+
+  - You can add and delete annotations
  
 ## Cons
 It was not difficult to implement, but it was a little tedious.
-Also, I got sick, so I didn't have enough time to finish the application.
 
 I list below, the things that were missing in the application
- - You can't view the annotations
  - You can't edit the annotations
- - You can't delete the annotations
  - You can't make the offset between documents and also the pagination
 
 ## Challenges
@@ -40,13 +40,20 @@ I had to use a third-party library, to help me when uploading files.
   - The other challenge was Angular Material and its themes, I didn't remember how difficult it was to implement a color,
 or try to get a variable value. I had to move from CSS to SCSS, halfway through the development.
 At the end, I decided to use Material 3 Builder, but I couldn't implement the Dark Mode, because I didn't have enough time.
-and it gives you each css file as a module, and I had to convert it to SCSS to use the same structure that angular requires/
+and it gives you each css file as a module, and I had to convert it to SCSS to use the same structure that angular requires
+
+  - I've never used to Drag&Drop in Angular, so I had to learn how to implement it, and it was a little complicated.
+Since, I always split the components and there is one property that needs a reference from a component, class o html element.
+It was kind of hard to share between components, without getting issues or unknown falsy values.
+At the end, I had to share a string value from a css class, to make it work.
+
+  - Once we show an annotations, I want to show a card next to annotation point, at the beginning when you don't know how the drag&drop works,
+it can be kind of complicated, because I want to show only the card, when the mouse is over the icon, but if you move the mouse outside the icon
+the card disappears. So, What I had to do, is to hover from parent element and fit the size of the child and the parent element, so when we show the card,
+the user can move the mouse without any problem.
 
 # Roadmap
-  - Show the annotations in the image
-  - Get the coordinates, when you click inside the image
   - Scale the coordinates, so that they fit the zoom.
-  - Always store the coords based on original image size
-  - Implement the edit and delete annotations
+  - Implement the edit annotations
   - Implement the pagination
   - Implement the dark mode

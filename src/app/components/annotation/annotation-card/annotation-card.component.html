@@ -11,7 +11,7 @@
     <p class="[ body-medium ]">{{ annotation.description }}</p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-stroked-button color="accent">
+    <button mat-stroked-button color="accent" (click)="deleteAnnotation(annotation)">
       <span>Delete</span>
       <mat-icon>delete</mat-icon>
     </button>

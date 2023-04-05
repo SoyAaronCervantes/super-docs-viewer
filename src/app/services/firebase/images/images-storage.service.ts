@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {getDownloadURL, getStorage, ref, uploadBytes} from "@angular/fire/storage";
+import {deleteObject, getDownloadURL, getStorage, ref, uploadBytes} from "@angular/fire/storage";
 import {first, from, share, shareReplay} from "rxjs";
 
 @Injectable({
@@ -19,5 +19,11 @@ export class ImagesStorageService {
         first( x => !!x ),
         share()
       );
+  }
+
+  deleteImage(path: string) {
+    const storage = getStorage();
+    const desertRef = ref(storage, path);
+    return from( deleteObject(desertRef) );
   }
 }

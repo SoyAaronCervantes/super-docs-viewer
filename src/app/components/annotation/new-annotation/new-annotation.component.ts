@@ -12,6 +12,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {AnnotationMediatorService} from "../../../services/mediator/annotation-mediator.service";
 import {Observable} from "rxjs";
 import {Point} from "@angular/cdk/drag-drop";
+import {DocumentService} from "../../../services/document/document.service";
 
 @Component({
   selector: 'app-new-annotation',
@@ -38,11 +39,12 @@ export class NewAnnotationComponent {
   constructor(
     private activatedRoute: ActivatedRoute,
     private annotationsFirestoreService: AnnotationsFirestoreService,
+    private annotationMediatorService: AnnotationMediatorService,
+    private documentService: DocumentService,
     private fileInputImageService: FileInputImageService,
     private fb: FormBuilder,
     private imageStorageService: ImagesStorageService,
     private matSnackBar: MatSnackBar,
-    private annotationMediatorService: AnnotationMediatorService,
     private renderer: Renderer2,
   ) {}
 
@@ -56,7 +58,7 @@ export class NewAnnotationComponent {
     const { title, description, file  } = formGroup.value as AnnotationFormInterfaces;
 
     const formData = file ? this.fileInputImageService.createFormData(file) : null;
-    const documentId = this.getDocumentIdFromUrl()!!;
+    const documentId = this.documentService.getDocumentIdFromUrl(this.activatedRoute);
 
     const newAnnotation: NewAnnotation = {
       title,
@@ -65,7 +67,7 @@ export class NewAnnotationComponent {
       position: { x, y }
     }
 
-    this.annotationsFirestoreService.createAnnotation(newAnnotation, documentId);
+    this.annotationsFirestoreService.createAnnotation(newAnnotation, documentId!!);
 
     if (formData && newAnnotation.image) {
       this.imageStorageService.uploadImage(formData.formData, newAnnotation.image);
@@ -74,10 +76,5 @@ export class NewAnnotationComponent {
     this.matSnackBar.open('Annotation created', 'Close');
 
     formGroup.reset();
-  }
-
-  private getDocumentIdFromUrl() {
-    const paramMap = this.activatedRoute.snapshot.paramMap;
-    return paramMap.get('id');
   }
 }
