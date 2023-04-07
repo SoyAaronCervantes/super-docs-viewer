@@ -13,8 +13,7 @@ export class ImagesStorageService extends FirebaseStorageService {
   }
 
   getImageUrl(path: string) {
-    const downloadUrl = this.downloadUrl(path);
-    return from( downloadUrl )
+    return from( this.downloadUrl(path) )
       .pipe(
         first( x => !!x ),
         share()
@@ -22,8 +21,7 @@ export class ImagesStorageService extends FirebaseStorageService {
   }
 
   deleteImage(path: string) {
-    const storage = getStorage();
-    const desertRef = ref(storage, path);
-    return from( deleteObject(desertRef) );
+    const storageReference = this.storageRef(path);
+    return from( deleteObject(storageReference) );
   }
 }
