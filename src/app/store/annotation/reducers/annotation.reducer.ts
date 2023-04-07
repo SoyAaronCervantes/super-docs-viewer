@@ -4,9 +4,7 @@ import {Annotation} from "../../../interfaces/annotations.interface";
 
 export const annotationFeatureKey = 'annotation';
 
-export interface AnnotationState extends Annotation {
-
-}
+export interface AnnotationState extends Annotation {}
 
 export const initialState: AnnotationState = {
   image: null,
@@ -26,6 +24,6 @@ export const annotationReducer = createReducer(
 
 export const annotationFeature = createFeature({
   name: annotationFeatureKey,
-  reducer: annotationReducer,
+  reducer: annotationReducer
 });
 

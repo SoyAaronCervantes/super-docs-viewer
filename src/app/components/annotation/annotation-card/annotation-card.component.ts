@@ -20,8 +20,7 @@ export class AnnotationCardComponent {
   ) {}
 
   deleteAnnotation(annotation: Annotation) {
-    const documentId = this.documentService.getDocumentIdFromUrl(this.activatedRoute);
-    console.log('deleteAnnotation', annotation, documentId);
-    this.annotationsFacadeService.deleteAnnotation(annotation, documentId!!);
+    const documentId = this.documentService.getDocumentIdFromUrl(this.activatedRoute)!!;
+    this.annotationsFacadeService.deleteAnnotation = {annotation, documentId};
   }
 }
