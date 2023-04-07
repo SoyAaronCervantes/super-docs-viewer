@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {collection, collectionData, doc, getDocFromServer} from "@angular/fire/firestore";
+import {inject, Injectable} from '@angular/core';
+import {collection, collectionData, doc, docData} from "@angular/fire/firestore";
 
-import {from, map, Observable} from "rxjs";
+import {from, Observable} from "rxjs";
 
 import {FirebaseFirestoreService} from "../base/firestore/firebase-firestore.service";
 
@@ -18,9 +18,7 @@ export class DocumentsFirestoreService extends FirebaseFirestoreService {
 
   getDocument$(id: string): Observable<DocumentInterface> {
     const documentReference = doc(this.firestore, 'docs', id);
-    return from(getDocFromServer(documentReference))
-      .pipe(
-        map(({ data }) => data() as DocumentInterface
-      ));
+    return from(docData(documentReference, { idField: 'id' })) as Observable<DocumentInterface>;
   }
+
 }

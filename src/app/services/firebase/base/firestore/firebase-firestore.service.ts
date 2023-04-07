@@ -5,5 +5,5 @@ import {Firestore} from "@angular/fire/firestore";
   providedIn: 'root'
 })
 export class FirebaseFirestoreService {
-  protected readonly firestore: Firestore = inject(Firestore);
+  readonly firestore: Firestore = inject(Firestore);
 }

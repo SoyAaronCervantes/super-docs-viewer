@@ -9,12 +9,12 @@ import {FirebaseFirestoreService} from "../base/firestore/firebase-firestore.ser
 })
 export class AnnotationsFirestoreService extends FirebaseFirestoreService {
   getAnnotations$(documentId: string) {
-    const collectionReference = this.getAnnotationCollection(documentId);
+    const collectionReference = this.getAnnotationsCollection(documentId);
     return collectionData(collectionReference, { idField: 'id' }) as Observable<Annotation[]>;
   }
 
   createAnnotation(annotation: NewAnnotation, documentId: string): Observable<void> {
-    const collectionReference = this.getAnnotationCollection(documentId);
+    const collectionReference = this.getAnnotationsCollection(documentId);
     const documentReference = doc(collectionReference);
     return from(setDoc(documentReference, annotation));
   }
@@ -24,7 +24,7 @@ export class AnnotationsFirestoreService extends FirebaseFirestoreService {
     return from( deleteDoc(documentReference) );
   }
 
-  private getAnnotationCollection(documentId: string) {
+  private getAnnotationsCollection(documentId: string) {
     return collection(this.firestore, 'docs', documentId, 'annotations');
   }
 }
