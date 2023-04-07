@@ -9,7 +9,7 @@ import {FileInputImageService} from "../../../services/file-input/file-input-ima
 import {ImagesStorageService} from "../../../services/firebase/images/images-storage.service";
 import {MatSidenav} from "@angular/material/sidenav";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {AnnotationMediatorService} from "../../../services/mediator/annotation-mediator.service";
+import {AnnotationMediatorService} from "../../../services/mediator/annotation/annotation-mediator.service";
 import {Observable} from "rxjs";
 import {Point} from "@angular/cdk/drag-drop";
 import {DocumentService} from "../../../services/document/document.service";

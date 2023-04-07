@@ -18,8 +18,8 @@ export class DocumentComponent {
   @ViewChild('coordinatesContainer', { static: true }) elementRef!: ElementRef<HTMLHtmlElement>;
   size = 100;
 
-  document$ = this.documentsFirestoreService.document$(this.getDocumentIdFromUrl());
-  annotations$ = this.annotationsFirestoreService.getAnnotationsFromDocument(this.getDocumentIdFromUrl())!!;
+  document$ = this.documentsFirestoreService.getDocument$(this.getDocumentIdFromUrl());
+  annotations$ = this.annotationsFirestoreService.getAnnotations$(this.getDocumentIdFromUrl())!!;
 
   constructor(
     private documentsFirestoreService: DocumentsFirestoreService,

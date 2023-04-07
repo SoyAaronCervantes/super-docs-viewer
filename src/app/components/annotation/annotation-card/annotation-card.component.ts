@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Annotation} from "../../../interfaces/annotations.interface";
-import {AnnotationsFacadeService} from "../../../services/facade/annotations-facade.service";
+import {AnnotationsFacadeService} from "../../../services/facade/annotations/annotations-facade.service";
 import {ActivatedRoute} from "@angular/router";
 import {DocumentService} from "../../../services/document/document.service";
 
