@@ -1,7 +1,7 @@
 import {Component, HostListener, Input} from '@angular/core';
 import {MatSidenav} from "@angular/material/sidenav";
 import {DocumentInterface} from "../../../interfaces/document.interface";
-import {AnnotationsFacadeService} from "../../../services/facade/annotations-facade.service";
+import {AnnotationsFacadeService} from "../../../services/facade/annotations/annotations-facade.service";
 
 @Component({
   selector: 'app-coordinate-image',

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Store} from "@ngrx/store";
-import {AnnotationState} from "../../store/annotation/reducers/annotation.reducer";
+import {AnnotationState} from "../../../store/annotation/reducers/annotation.reducer";
 import {Point} from "@angular/cdk/drag-drop";
-import * as AnnotationActions from '../../store/annotation/actions/annotation.actions';
-import {Annotation} from "../../interfaces/annotations.interface";
+import * as AnnotationActions from '../../../store/annotation/actions/annotation.actions';
+import {Annotation} from "../../../interfaces/annotations.interface";
 
 @Injectable({
   providedIn: 'root'

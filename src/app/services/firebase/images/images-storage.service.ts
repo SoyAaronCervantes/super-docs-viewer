@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import {deleteObject, getDownloadURL, getStorage, ref, uploadBytes} from "@angular/fire/storage";
 import {first, from, share, shareReplay} from "rxjs";
+import {FirebaseStorageService} from "../base/storage/firebase-storage.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ImagesStorageService {
-  private readonly storage = getStorage();
+export class ImagesStorageService extends FirebaseStorageService {
   uploadImage(formData: FormData, path: string) {
-    const storageReference = ref(this.storage, path);
+    const storageReference = this.storageRef(path);
     return from(uploadBytes(storageReference, formData.get('file') as Blob))
   }
 
   getImageUrl(path: string) {
-    const storage = getStorage();
-    return from( getDownloadURL(ref(storage, path)) )
+    const downloadUrl = this.downloadUrl(path);
+    return from( downloadUrl )
       .pipe(
         first( x => !!x ),
         share()
