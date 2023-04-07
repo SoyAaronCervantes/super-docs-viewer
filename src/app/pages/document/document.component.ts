@@ -7,6 +7,7 @@ import {AnnotationCardComponent} from "../../components/annotation/annotation-ca
 import {
   CoordinateContainerComponent
 } from "../../components/coordinate/coordinate-container/coordinate-container.component";
+import {DocumentService} from "../../services/document/document.service";
 
 @Component({
   selector: 'app-document',
@@ -25,11 +26,11 @@ export class DocumentComponent {
     private documentsFirestoreService: DocumentsFirestoreService,
     private annotationsFirestoreService: AnnotationsFirestoreService,
     private activatedRoute: ActivatedRoute,
+    private documentService: DocumentService,
   ) {}
 
   private getDocumentIdFromUrl() {
-    const paramMap = this.activatedRoute.snapshot.paramMap;
-    return paramMap.get('id')!!;
+    return this.documentService.getDocumentIdFromUrl(this.activatedRoute)!;
   }
 
 }

@@ -23,7 +23,7 @@ export class CoordinateImageComponent {
       const x = event.clientX;
       const y = event.clientY;
 
-      this.annotationsFacadeService.updateCoordinates({x, y});
+      this.annotationsFacadeService.updateCoordinates = {x, y};
     }
   }
 
