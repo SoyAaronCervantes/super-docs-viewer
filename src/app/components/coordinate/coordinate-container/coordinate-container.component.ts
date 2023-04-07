@@ -14,7 +14,6 @@ export class CoordinateContainerComponent {
   @Input() document: DocumentInterface;
   @Input() sidenav: MatSidenav;
   @Input() size: number;
-  @Input() annotations: Annotation[];
   url$: Observable<string> = EMPTY;
 
   constructor(

@@ -1,8 +1,10 @@
 import {Component, Input} from '@angular/core';
-import {Annotation} from "../../../interfaces/annotations.interface";
-import {AnnotationsFacadeService} from "../../../services/facade/annotations/annotations-facade.service";
 import {ActivatedRoute} from "@angular/router";
-import {DocumentService} from "../../../services/document/document.service";
+
+import {Annotation} from "../../../interfaces/annotations.interface";
+
+import {AnnotationsFacadeService} from "../../../services/facade/annotations/annotations-facade.service";
+import {DocumentParamsService} from "../../../services/params/document/document-params.service";
 
 @Component({
   selector: 'app-annotation-card',
@@ -16,11 +18,11 @@ export class AnnotationCardComponent {
   constructor(
     private annotationsFacadeService: AnnotationsFacadeService,
     private activatedRoute: ActivatedRoute,
-    private documentService: DocumentService
+    private documentParamsService: DocumentParamsService,
   ) {}
 
   deleteAnnotation(annotation: Annotation) {
-    const documentId = this.documentService.getDocumentIdFromUrl(this.activatedRoute)!!;
+    const documentId = this.documentParamsService.getDocumentIdFromUrl(this.activatedRoute.snapshot)!!;
     this.annotationsFacadeService.deleteAnnotation = {annotation, documentId};
   }
 }
