@@ -1,13 +1,5 @@
-import {Component, ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {DocumentsFirestoreService} from "../../services/firebase/documents/documents-firestore.service";
-import {AnnotationsFirestoreService} from "../../services/firebase/annotations/annotations-firestore.service";
-import {ActivatedRoute} from "@angular/router";
-import * as url from "url";
-import {AnnotationCardComponent} from "../../components/annotation/annotation-card/annotation-card.component";
-import {
-  CoordinateContainerComponent
-} from "../../components/coordinate/coordinate-container/coordinate-container.component";
-import {DocumentService} from "../../services/document/document.service";
+import {Component, ElementRef, inject, ViewChild} from '@angular/core';
+import {DocumentMediatorService} from "../../services/mediator/document/document-mediator.service";
 
 @Component({
   selector: 'app-document',
@@ -15,22 +7,12 @@ import {DocumentService} from "../../services/document/document.service";
   styleUrls: ['./document.component.scss']
 })
 export class DocumentComponent {
+  readonly #documentMediator = inject(DocumentMediatorService);
 
-  @ViewChild('coordinatesContainer', { static: true }) elementRef!: ElementRef<HTMLHtmlElement>;
+  @ViewChild('coordinatesContainer', { static: true })
+  elementRef!: ElementRef<HTMLHtmlElement>;
+
   size = 100;
 
-  document$ = this.documentsFirestoreService.getDocument$(this.getDocumentIdFromUrl());
-  annotations$ = this.annotationsFirestoreService.getAnnotations$(this.getDocumentIdFromUrl())!!;
-
-  constructor(
-    private documentsFirestoreService: DocumentsFirestoreService,
-    private annotationsFirestoreService: AnnotationsFirestoreService,
-    private activatedRoute: ActivatedRoute,
-    private documentService: DocumentService,
-  ) {}
-
-  private getDocumentIdFromUrl() {
-    return this.documentService.getDocumentIdFromUrl(this.activatedRoute)!;
-  }
-
+  document$ = this.#documentMediator.document;
 }
