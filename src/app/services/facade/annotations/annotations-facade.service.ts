@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Point} from "@angular/cdk/drag-drop";
 
-import {StoreService} from "../../store/store.service";
+import {StoreService} from "../../store/base/store.service";
 
 import {Annotation} from "../../../interfaces/annotations.interface";
 

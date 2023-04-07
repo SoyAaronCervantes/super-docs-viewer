@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {StoreService} from "../../store/store.service";
+import {StoreService} from "../../store/base/store.service";
 import {DocumentState} from "../../../store/document/reducers/document.reducer";
 import * as DocumentActions from "../../../store/document/actions/document.actions";
 

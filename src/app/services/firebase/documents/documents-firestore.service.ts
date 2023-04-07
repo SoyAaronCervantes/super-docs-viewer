@@ -1,4 +1,4 @@
-import {inject, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {collection, collectionData, doc, docData} from "@angular/fire/firestore";
 
 import {from, Observable} from "rxjs";
