@@ -18,6 +18,17 @@ export const initialState: DocumentState = {
 
 export const documentReducer = createReducer(
   initialState,
-  on(DocumentActions.storeDocument, (state, action) => state),
+  on(DocumentActions.storeDocument, (state, { document }) => ({
+    ...state,
+    id: document.id,
+    title: document.title,
+    annotations: document.annotations,
+    image: document.image,
+    storage: JSON.parse(JSON.stringify(document.storage))
+  })),
 );
 
+export const documentFeature = createFeature({
+  name: documentFeatureKey,
+  reducer: documentReducer
+});

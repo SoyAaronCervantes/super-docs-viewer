@@ -11,7 +11,7 @@ export const storeDocument = createAction(
   props<{ document: DocumentInterface }>()
 );
 
-export const documentDocumentsFailure = createAction(
+export const documentsFailure = createAction(
   '[Document/Firebase] Failed to get document and annotations',
   props<{ error: any }>()
 );

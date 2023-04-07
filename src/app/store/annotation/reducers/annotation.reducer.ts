@@ -24,7 +24,6 @@ export const annotationReducer = createReducer(
 
 export const annotationFeature = createFeature({
   name: annotationFeatureKey,
-  reducer: annotationReducer,
-
+  reducer: annotationReducer
 });
 

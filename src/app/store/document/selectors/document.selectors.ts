@@ -1,6 +1,12 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-import * as fromDocument from '../reducers/document.reducer';
+import { createSelector } from '@ngrx/store';
+import {documentFeature} from "../reducers/document.reducer";
 
-export const selectDocumentState = createFeatureSelector<fromDocument.DocumentState>(
-  fromDocument.documentFeatureKey
-);
+const {
+  selectAnnotations,
+  selectDocumentState
+} = documentFeature;
+
+export const selectDocument =
+  createSelector(selectDocumentState, value => value);
+export const selectAnnotationsFromDocument =
+  createSelector(selectAnnotations, value => value);

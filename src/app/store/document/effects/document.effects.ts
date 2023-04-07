@@ -1,26 +1,35 @@
-import { Injectable } from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, concatMap } from 'rxjs/operators';
-import { Observable, EMPTY, of } from 'rxjs';
+import {of, zip} from 'rxjs';
 import * as DocumentActions from '../actions/document.actions';
+import {DocumentsFirestoreService} from "../../../services/firebase/documents/documents-firestore.service";
+import {EffectStoreService} from "../../../services/store/effect/effect-store.service";
+import {AnnotationsFirestoreService} from "../../../services/firebase/annotations/annotations-firestore.service";
+import {documentsFailure} from "../actions/document.actions";
 
 
 @Injectable()
-export class DocumentEffects {
+export class DocumentEffects{
+  readonly #actionsService = inject(EffectStoreService);
+  readonly #documentsService = inject(DocumentsFirestoreService);
+  readonly #annotationsService = inject(AnnotationsFirestoreService);
 
-  documentDocuments$ = createEffect(() => {
-    return this.actions$.pipe(
-
-      ofType(DocumentActions.documentDocuments),
-      concatMap(() =>
-        /** An EMPTY observable only emits completion. Replace with your own observable API request */
-        EMPTY.pipe(
-          map(data => DocumentActions.storeDocument({ data })),
-          catchError(error => of(DocumentActions.documentDocumentsFailure({ error }))))
-      )
+  document$ = createEffect(() => {
+    return this.#actionsService.actions$.pipe(
+      ofType(DocumentActions.getDocument),
+      concatMap(({ id }) => zip([
+        of(id),
+        this.#documentsService.getDocument$(id)
+      ])),
+      concatMap( ([ id, value ]) => zip([
+        of(value),
+        this.#annotationsService.getAnnotations$(id)
+      ])),
+      map(([ document, annotations ]) => DocumentActions.storeDocument({
+          document: {...document, annotations: [...annotations]}
+      })),
+      catchError(error => of(DocumentActions.documentsFailure({ error })))
     );
   });
-
-
-  constructor(private actions$: Actions) {}
 }
