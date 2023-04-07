@@ -1,0 +1,23 @@
+import { createFeature, createReducer, on } from '@ngrx/store';
+import * as DocumentActions from '../actions/document.actions';
+import {DocumentInterface} from "../../../interfaces/document.interface";
+
+export const documentFeatureKey = 'document';
+
+export interface DocumentState extends DocumentInterface {}
+
+export const initialState: DocumentState = {
+  id: 0,
+  title: '',
+  annotations: [],
+  image: '',
+  storage: {
+    url: ''
+  }
+};
+
+export const documentReducer = createReducer(
+  initialState,
+  on(DocumentActions.storeDocument, (state, action) => state),
+);
+
