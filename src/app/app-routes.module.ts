@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
+import {documentResolver} from "./resolver/document.resolver";
 
 const routes: Routes = [
   {
     path: 'documents',
     children: [
       { path: '', loadChildren: () => import('./pages/document-list/document-list.module').then(m => m.DocumentListModule) },
-      { path: ':id', loadChildren: () => import('./pages/document/document.module').then(m => m.DocumentModule) },
+      {
+        path: ':id',
+        resolve: { document: documentResolver },
+        loadChildren: () => import('./pages/document/document.module').then(m => m.DocumentModule)
+      },
       { path: 'not-found', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) },
     ]
   },

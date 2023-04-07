@@ -1,18 +1,23 @@
 import {Component, ElementRef, Input, Renderer2, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {FileInput} from "ngx-material-file-input";
-import {AnnotationFormInterfaces} from "../../../interfaces/annotation-form.interfaces";
 import {ActivatedRoute} from "@angular/router";
-import {NewAnnotation} from "../../../interfaces/annotations.interface";
-import {AnnotationsFirestoreService} from "../../../services/firebase/annotations/annotations-firestore.service";
-import {FileInputImageService} from "../../../services/file-input/file-input-image.service";
-import {ImagesStorageService} from "../../../services/firebase/images/images-storage.service";
+
 import {MatSidenav} from "@angular/material/sidenav";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {AnnotationMediatorService} from "../../../services/mediator/annotation/annotation-mediator.service";
-import {Observable} from "rxjs";
 import {Point} from "@angular/cdk/drag-drop";
-import {DocumentService} from "../../../services/document/document.service";
+
+import {FileInput} from "ngx-material-file-input";
+
+import {AnnotationFormInterfaces} from "../../../interfaces/annotation-form.interfaces";
+import {NewAnnotation} from "../../../interfaces/annotations.interface";
+
+import {AnnotationsFirestoreService} from "../../../services/firebase/annotations/annotations-firestore.service";
+import {AnnotationMediatorService} from "../../../services/mediator/annotation/annotation-mediator.service";
+import {FileInputImageService} from "../../../services/file-input/file-input-image.service";
+import {ImagesStorageService} from "../../../services/firebase/images/images-storage.service";
+
+import {Observable} from "rxjs";
+import {DocumentParamsService} from "../../../services/params/document/document-params.service";
 
 @Component({
   selector: 'app-new-annotation',
@@ -40,7 +45,7 @@ export class NewAnnotationComponent {
     private activatedRoute: ActivatedRoute,
     private annotationsFirestoreService: AnnotationsFirestoreService,
     private annotationMediatorService: AnnotationMediatorService,
-    private documentService: DocumentService,
+    private documentParamsService: DocumentParamsService,
     private fileInputImageService: FileInputImageService,
     private fb: FormBuilder,
     private imageStorageService: ImagesStorageService,
@@ -58,7 +63,7 @@ export class NewAnnotationComponent {
     const { title, description, file  } = formGroup.value as AnnotationFormInterfaces;
 
     const formData = file ? this.fileInputImageService.createFormData(file) : null;
-    const documentId = this.documentService.getDocumentIdFromUrl(this.activatedRoute);
+    const documentId = this.documentParamsService.getDocumentIdFromUrl(this.activatedRoute.snapshot);
 
     const newAnnotation: NewAnnotation = {
       title,

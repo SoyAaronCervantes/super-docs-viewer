@@ -17,6 +17,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducer, metaReducers } from './store/reducers/app.reducer';
 import {AnnotationStoreModule} from "./store/annotation/annotation-store.module";
 import {EffectsModule, EffectsRootModule} from "@ngrx/effects";
+import {DocumentStoreModule} from "./store/document/document-store.module";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {EffectsModule, EffectsRootModule} from "@ngrx/effects";
     StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([]),
-    AnnotationStoreModule
+    AnnotationStoreModule,
+    DocumentStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

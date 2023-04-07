@@ -7,11 +7,11 @@ import {getDownloadURL, getStorage, ref} from "@angular/fire/storage";
 export class FirebaseStorageService {
   protected readonly storage = getStorage();
 
-  storageRef(path: string) {
+  protected storageRef(path: string) {
     return ref(this.storage, path);
   }
 
-  downloadUrl(path: string) {
+  protected downloadUrl(path: string) {
     const storage = getStorage();
     const storageReference = this.storageRef(path);
     return getDownloadURL(storageReference);

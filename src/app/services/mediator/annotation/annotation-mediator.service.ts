@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {AnnotationState} from "../../../store/annotation/reducers/annotation.reducer";
 import {Point} from "@angular/cdk/drag-drop";
 import {Observable} from "rxjs";
@@ -8,8 +8,9 @@ import {StoreService} from "../../store/base/store.service";
 @Injectable({
   providedIn: 'root'
 })
-export class AnnotationMediatorService extends StoreService<AnnotationState> {
+export class AnnotationMediatorService {
+  readonly #storeService = inject(StoreService<AnnotationState>);
   get coordinates$(): Observable<Point> {
-    return this.store.select(AnnotationSelectors.selectCoordinates);
+    return this.#storeService.store.select(AnnotationSelectors.selectCoordinates);
   }
 }

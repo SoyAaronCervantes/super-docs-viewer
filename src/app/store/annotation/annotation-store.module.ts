@@ -10,8 +10,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 @NgModule({
   imports: [
     MatSnackBarModule,
-    EffectsModule.forFeature([AnnotationEffects]),
     StoreModule.forFeature(fromAnnotation.annotationFeatureKey, fromAnnotation.annotationReducer),
+    EffectsModule.forFeature([AnnotationEffects]),
   ]
 })
 export class AnnotationStoreModule { }

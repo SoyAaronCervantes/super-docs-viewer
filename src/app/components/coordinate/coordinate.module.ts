@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { CoordinateContainerComponent } from './coordinate-container/coordinate-container.component';
 import { CoordinateImageComponent } from './coordinate-image/coordinate-image.component';
 import { CoordinateAnnotationComponent } from './coordinate-annotation/coordinate-annotation.component';
@@ -26,7 +26,8 @@ import {MatCardModule} from "@angular/material/card";
     MatButtonModule,
     MatIconModule,
     AnnotationModule,
-    MatCardModule
+    MatCardModule,
+    NgOptimizedImage
   ]
 })
 export class CoordinateModule { }
