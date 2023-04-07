@@ -1,12 +1,15 @@
 import {inject, Injectable} from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, concatMap } from 'rxjs/operators';
-import {of, zip} from 'rxjs';
-import * as DocumentActions from '../actions/document.actions';
+import {createEffect, ofType } from '@ngrx/effects';
+import {catchError, map, concatMap, tap} from 'rxjs/operators';
+
 import {DocumentsFirestoreService} from "../../../services/firebase/documents/documents-firestore.service";
 import {EffectStoreService} from "../../../services/store/effect/effect-store.service";
 import {AnnotationsFirestoreService} from "../../../services/firebase/annotations/annotations-firestore.service";
-import {documentsFailure} from "../actions/document.actions";
+import {ImagesStorageService} from "../../../services/firebase/images/images-storage.service";
+
+import * as DocumentActions from '../actions/document.actions';
+
+import {of, zip} from 'rxjs';
 
 
 @Injectable()
@@ -14,6 +17,7 @@ export class DocumentEffects{
   readonly #actionsService = inject(EffectStoreService);
   readonly #documentsService = inject(DocumentsFirestoreService);
   readonly #annotationsService = inject(AnnotationsFirestoreService);
+  readonly #imagesStorageService = inject(ImagesStorageService)
 
   document$ = createEffect(() => {
     return this.#actionsService.actions$.pipe(
@@ -24,11 +28,18 @@ export class DocumentEffects{
       ])),
       concatMap( ([ id, value ]) => zip([
         of(value),
-        this.#annotationsService.getAnnotations$(id)
+        this.#annotationsService.getAnnotations$(id),
+        this.#imagesStorageService.getImageUrl(value.storage.url ?? '')
       ])),
-      map(([ document, annotations ]) => DocumentActions.storeDocument({
-          document: {...document, annotations: [...annotations]}
-      })),
+      map(([ document, annotations, url ]) =>
+        DocumentActions.storeDocument({
+          document: {
+            ...document,
+            annotations,
+            storage: { url }
+          }
+        })
+      ),
       catchError(error => of(DocumentActions.documentsFailure({ error })))
     );
   });

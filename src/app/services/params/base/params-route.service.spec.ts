@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DocumentService } from './document.service';
+import { ParamsRouteService } from './params-route.service';
 
-describe('DocumentService', () => {
-  let service: DocumentService;
+describe('ParamsRouteService', () => {
+  let service: ParamsRouteService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DocumentService);
+    service = TestBed.inject(ParamsRouteService);
   });
 
   it('should be created', () => {

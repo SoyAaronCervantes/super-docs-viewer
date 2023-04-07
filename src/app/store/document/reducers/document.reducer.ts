@@ -10,7 +10,6 @@ export const initialState: DocumentState = {
   id: 0,
   title: '',
   annotations: [],
-  image: '',
   storage: {
     url: ''
   }
@@ -23,7 +22,6 @@ export const documentReducer = createReducer(
     id: document.id,
     title: document.title,
     annotations: document.annotations,
-    image: document.image,
     storage: JSON.parse(JSON.stringify(document.storage))
   })),
 );
