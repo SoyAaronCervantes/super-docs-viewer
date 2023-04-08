@@ -3,7 +3,7 @@ import {Point} from "@angular/cdk/drag-drop";
 
 import {StoreService} from "../../store/base/store.service";
 
-import {Annotation} from "../../../interfaces/annotations.interface";
+import {Annotation} from "../../../interfaces/annotation.interface";
 
 import {AnnotationState} from "../../../store/annotation/reducers/annotation.reducer";
 import * as AnnotationActions from '../../../store/annotation/actions/annotation.actions';

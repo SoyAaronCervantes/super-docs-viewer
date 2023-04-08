@@ -6,25 +6,33 @@
 
   <mat-sidenav-content>
 
-    <div class="[ container--document ]" *ngIf="document$ | async as document">
+    <ng-container *ngrxLet="document$ | ngrxPush as document; suspenseTpl: loading">
 
-      <mat-toolbar class="[ toolbar ] [ surface on-surface-text ]">
-        <app-document-toolbar-content [document]="document" [sidenav]="sidenav"></app-document-toolbar-content>
-      </mat-toolbar>
+      <div class="[ container--document ]">
 
-      <app-coordinate-container
-        #coordinatesContainer
-        [ngStyle]="{ 'inline-size': size + '%' }"
-        [document]="document"
-        [sidenav]="sidenav"
-        [size]="size"
-        class="[ coordinates--container ]">
-      </app-coordinate-container>
+        <mat-toolbar class="[ toolbar ] [ surface on-surface-text ]">
+          <app-document-toolbar-content [document]="document!!" [sidenav]="sidenav"></app-document-toolbar-content>
+        </mat-toolbar>
 
-      <app-zoom-buttons [(size)]="size"></app-zoom-buttons>
+        <app-coordinate-container
+          #coordinatesContainer
+          [ngStyle]="{ 'inline-size': size + '%' }"
+          [document]="document!!"
+          [sidenav]="sidenav"
+          [size]="size"
+          class="[ coordinates--container ]">
+        </app-coordinate-container>
 
-    </div>
+        <app-zoom-buttons [(size)]="size"></app-zoom-buttons>
 
-  </mat-sidenav-content>\
+      </div>
+
+    </ng-container>
+
+    <ng-template #loading>
+      <p>Loading...</p>
+    </ng-template>
+
+  </mat-sidenav-content>
 
 </mat-sidenav-container>

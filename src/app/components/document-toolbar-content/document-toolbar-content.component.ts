@@ -9,8 +9,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   styleUrls: ['./document-toolbar-content.component.scss']
 })
 export class DocumentToolbarContentComponent {
-  @Input() document: DocumentInterface | null = null;
-  @Input() sidenav: MatSidenav | null = null;
+  @Input() document: DocumentInterface;
+  @Input() sidenav: MatSidenav;
 
   constructor(
     private matSnackBar: MatSnackBar

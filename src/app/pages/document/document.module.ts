@@ -10,6 +10,7 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
 import {AnnotationModule} from "../../components/annotation/annotation.module";
 import {CoordinateModule} from "../../components/coordinate/coordinate.module";
 import {DocumentRoutingModule} from "./document-routing.module";
+import {LetModule, PushModule} from "@ngrx/component";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import {DocumentRoutingModule} from "./document-routing.module";
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    LetModule,
+    PushModule
   ]
 })
 export class DocumentModule { }

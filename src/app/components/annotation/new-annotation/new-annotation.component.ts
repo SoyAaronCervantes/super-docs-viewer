@@ -9,7 +9,7 @@ import {Point} from "@angular/cdk/drag-drop";
 import {FileInput} from "ngx-material-file-input";
 
 import {AnnotationFormInterfaces} from "../../../interfaces/annotation-form.interfaces";
-import {NewAnnotation} from "../../../interfaces/annotations.interface";
+import {NewAnnotation} from "../../../interfaces/annotation.interface";
 
 import {AnnotationsFirestoreService} from "../../../services/firebase/annotations/annotations-firestore.service";
 import {AnnotationMediatorService} from "../../../services/mediator/annotation/annotation-mediator.service";
@@ -67,8 +67,8 @@ export class NewAnnotationComponent {
 
     const newAnnotation: NewAnnotation = {
       title,
-      description: description !== undefined ? description : null,
-      image: formData ? `annotations/${formData.fileName}` : null,
+      description: description !== undefined ? description : '',
+      image: formData ? `annotations/${formData.fileName}` : '',
       position: { x, y }
     }
 
