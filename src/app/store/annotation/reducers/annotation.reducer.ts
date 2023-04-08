@@ -1,17 +1,17 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import * as AnnotationActions from '../actions/annotation.actions';
-import {Annotation} from "../../../interfaces/annotations.interface";
+import {Annotation} from "../../../interfaces/annotation.interface";
 
 export const annotationFeatureKey = 'annotation';
 
 export interface AnnotationState extends Annotation {}
 
 export const initialState: AnnotationState = {
-  image: null,
+  image: '',
   position: {x: 0, y: 0},
   title: '',
-  description: null,
-  id: null
+  description: '',
+  id: ''
 };
 
 export const annotationReducer = createReducer(
