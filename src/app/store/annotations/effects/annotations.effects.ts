@@ -24,7 +24,7 @@ export class AnnotationsEffects {
       ofType(AnnotationsActions.deleteAnnotation),
       concatMap(({ annotation, documentId }) => {
         let obs$ = [this.#annotationsFirestoreService.deleteAnnotation(annotation, documentId)];
-        if (annotation?.image.length > 0) {
+        if (annotation.image !== null) {
           obs$ = [...obs$, this.#imagesStorageService.deleteImage(annotation.image)];
         }
         return zip(of(annotation.id),...obs$);
