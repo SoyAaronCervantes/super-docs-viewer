@@ -8,16 +8,19 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 
+import { StoreModule } from '@ngrx/store';
+import {EffectsModule} from "@ngrx/effects";
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 import { AppComponent } from './app.component';
 import {AppRoutesModule} from "./app-routes.module";
 
-import { environment } from '../environments/environment';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { appReducer, metaReducers } from './store/reducers/app.reducer';
-import {AnnotationStoreModule} from "./store/annotation/annotation-store.module";
-import {EffectsModule, EffectsRootModule} from "@ngrx/effects";
+import { appReducer } from './store/reducers/app.reducer';
+
 import {DocumentStoreModule} from "./store/document/document-store.module";
+import {AnnotationsStoreModule} from "./store/annotations/annotations-store.module";
+
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,7 @@ import {DocumentStoreModule} from "./store/document/document-store.module";
     StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([]),
-    AnnotationStoreModule,
+    AnnotationsStoreModule,
     DocumentStoreModule
   ],
   providers: [],

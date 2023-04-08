@@ -14,9 +14,4 @@ export class DocumentMediatorService {
   get document(): Observable<DocumentInterface> {
     return this.#storeService.store.select(DocumentSelectors.selectDocument);
   }
-
-  get annotationsFromDocument(): Observable<Annotation[]> {
-    return this.#storeService.store.select(DocumentSelectors.selectAnnotationsFromDocument);
-  }
-
 }

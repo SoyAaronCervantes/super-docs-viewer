@@ -2,17 +2,20 @@ import { createFeature, createReducer, on } from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import * as AnnotationsActions from '../actions/annotations.actions';
 import {Annotation} from "../../../interfaces/annotation.interface";
+import {Point} from "@angular/cdk/drag-drop";
 
 export const annotationsFeatureKey = 'annotations';
 
-export interface State extends EntityState<Annotation> {
+export interface AnnotationsState extends EntityState<Annotation> {
   // additional entities state properties
+  coordinates: Point
 }
 
 export const adapter: EntityAdapter<Annotation> = createEntityAdapter<Annotation>();
 
-export const initialState: State = adapter.getInitialState({
+export const initialState: AnnotationsState = adapter.getInitialState({
   // additional entity state properties
+  coordinates: {x: 0, y: 0}
 });
 
 export const annotationsReducer = createReducer(
@@ -35,7 +38,7 @@ export const annotationsReducer = createReducer(
   on(AnnotationsActions.updateAnnotations,
     (state, action) => adapter.updateMany(action.annotations, state)
   ),
-  on(AnnotationsActions.deleteAnnotation,
+  on(AnnotationsActions.deletedAnnotation,
     (state, action) => adapter.removeOne(action.id, state)
   ),
   on(AnnotationsActions.deleteAnnotations,
@@ -47,6 +50,10 @@ export const annotationsReducer = createReducer(
   on(AnnotationsActions.clearAnnotations,
     state => adapter.removeAll(state)
   ),
+  on(AnnotationsActions.setCoords, (state, { coordinates }) => ({
+    ...state,
+    coordinates
+  }) )
 );
 
 export const annotationsFeature = createFeature({
@@ -62,4 +69,5 @@ export const {
   selectEntities,
   selectAll,
   selectTotal,
+  selectCoordinates
 } = annotationsFeature;

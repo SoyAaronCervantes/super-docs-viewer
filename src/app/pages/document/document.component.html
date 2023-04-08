@@ -6,18 +6,20 @@
 
   <mat-sidenav-content>
 
-    <ng-container *ngrxLet="document$ | ngrxPush as document; suspenseTpl: loading">
+
+    <ng-container *ngrxLet="{document: document$, annotations: annotations$} | ngrxPush as vm; suspenseTpl: loading">
 
       <div class="[ container--document ]">
 
         <mat-toolbar class="[ toolbar ] [ surface on-surface-text ]">
-          <app-document-toolbar-content [document]="document!!" [sidenav]="sidenav"></app-document-toolbar-content>
+          <app-document-toolbar-content [document]="vm!!.document" [sidenav]="sidenav"></app-document-toolbar-content>
         </mat-toolbar>
 
         <app-coordinate-container
           #coordinatesContainer
           [ngStyle]="{ 'inline-size': size + '%' }"
-          [document]="document!!"
+          [document]="vm!!.document"
+          [annotations]="vm!!.annotations"
           [sidenav]="sidenav"
           [size]="size"
           class="[ coordinates--container ]">

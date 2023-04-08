@@ -1,6 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {createEffect, ofType } from '@ngrx/effects';
-import {catchError, map, concatMap} from 'rxjs/operators';
+import {catchError, map, concatMap, mergeMap} from 'rxjs/operators';
 
 import {DocumentsFirestoreService} from "../../../services/firebase/documents/documents-firestore.service";
 import {EffectStoreService} from "../../../services/store/effect/effect-store.service";
@@ -8,6 +8,7 @@ import {AnnotationsFirestoreService} from "../../../services/firebase/annotation
 import {ImagesStorageService} from "../../../services/firebase/images/images-storage.service";
 
 import * as DocumentActions from '../actions/document.actions';
+import * as AnnotationActions from '../../annotations/actions/annotations.actions';
 
 import {of, zip} from 'rxjs';
 
@@ -31,15 +32,10 @@ export class DocumentEffects{
         this.#annotationsService.getAnnotations$(id),
         this.#imagesStorageService.getImageUrl(value.storage.url ?? '')
       ])),
-      map(([ document, annotations, url ]) =>
-        DocumentActions.storeDocument({
-          document: {
-            ...document,
-            annotations,
-            storage: { url }
-          }
-        })
-      ),
+      mergeMap(([ document, annotations, url ]) => [
+        DocumentActions.storeDocument({ document: { ...document, storage: { url } } }),
+        AnnotationActions.setAnnotations({ annotations })
+      ]),
       catchError(error => of(DocumentActions.documentsFailure({ error })))
     );
   });

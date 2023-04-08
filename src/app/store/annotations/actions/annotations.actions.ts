@@ -1,52 +1,69 @@
 import { createAction, props } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
 import {Annotation} from "../../../interfaces/annotation.interface";
+import {Point} from "@angular/cdk/drag-drop";
 
 export const setAnnotations = createAction(
-  '[Annotations/API] Set Annotations',
+  '[Annotation/API] Set Annotations',
   props<{ annotations: Annotation[] }>()
 );
 
 export const addAnnotation = createAction(
-  '[Annotations/API] Add Annotation',
+  '[Annotation/API] Add Annotation',
   props<{ annotation: Annotation }>()
 );
 
 export const upsertAnnotation = createAction(
-  '[Annotations/API] Upsert Annotation',
+  '[Annotation/API] Upsert Annotation',
   props<{ annotation: Annotation }>()
 );
 
 export const addAnnotations = createAction(
-  '[Annotations/API] Add Annotations',
+  '[Annotation/API] Add Annotations',
   props<{ annotations: Annotation[] }>()
 );
 
 export const upsertAnnotations = createAction(
-  '[Annotations/API] Upsert Annotations',
+  '[Annotation/API] Upsert Annotations',
   props<{ annotations: Annotation[] }>()
 );
 
 export const updateAnnotation = createAction(
-  '[Annotations/API] Update Annotation',
+  '[Annotation/API] Update Annotation',
   props<{ annotation: Update<Annotation> }>()
 );
 
 export const updateAnnotations = createAction(
-  '[Annotations/API] Update Annotations',
+  '[Annotation/API] Update Annotations',
   props<{ annotations: Update<Annotation>[] }>()
 );
 
 export const deleteAnnotation = createAction(
-  '[Annotations/API] Delete Annotation',
+  '[Annotation/API] Delete Annotation',
+  props<{ annotation: Annotation, documentId: string }>()
+);
+
+export const deletedAnnotation = createAction(
+  '[Annotation/API] Deleted Annotation',
   props<{ id: string }>()
 );
 
 export const deleteAnnotations = createAction(
-  '[Annotations/API] Delete Annotations',
+  '[Annotation/API] Delete Annotations',
   props<{ ids: string[] }>()
 );
 
 export const clearAnnotations = createAction(
-  '[Annotations/API] Clear Annotations'
+  '[Annotation/API] Clear Annotations'
+);
+
+export const setCoords = createAction(
+  '[Annotation] Set Coords',
+  props<{ coordinates: Point }>()
+);
+
+
+export const annotationFailure = createAction(
+  '[Annotation/API] Annotation Failure',
+  props<{ error: any }>()
 );

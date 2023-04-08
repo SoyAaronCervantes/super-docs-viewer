@@ -2,21 +2,21 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
 
-import { AnnotationEffects } from './annotation.effects';
+import { AnnotationsEffects } from './annotations.effects';
 
-describe('AnnotationEffects', () => {
+describe('AnnotationsEffects', () => {
   let actions$: Observable<any>;
-  let effects: AnnotationEffects;
+  let effects: AnnotationsEffects;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        AnnotationEffects,
+        AnnotationsEffects,
         provideMockActions(() => actions$)
       ]
     });
 
-    effects = TestBed.inject(AnnotationEffects);
+    effects = TestBed.inject(AnnotationsEffects);
   });
 
   it('should be created', () => {

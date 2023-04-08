@@ -1,8 +1,11 @@
 import {Component, Input} from '@angular/core';
-import {DocumentInterface} from "../../../interfaces/document.interface";
 import {MatSidenav} from "@angular/material/sidenav";
-import {Annotation} from "../../../interfaces/annotation.interface";
+
 import {ImagesStorageService} from "../../../services/firebase/images/images-storage.service";
+
+import {DocumentInterface} from "../../../interfaces/document.interface";
+import {Annotation} from "../../../interfaces/annotation.interface";
+
 import {EMPTY, Observable} from "rxjs";
 
 @Component({
@@ -12,6 +15,7 @@ import {EMPTY, Observable} from "rxjs";
 })
 export class CoordinateContainerComponent {
   @Input() document: DocumentInterface;
+  @Input() annotations: Annotation[];
   @Input() sidenav: MatSidenav;
   @Input() size: number;
   url$: Observable<string> = EMPTY;

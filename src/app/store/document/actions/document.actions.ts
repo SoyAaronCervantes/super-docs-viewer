@@ -7,7 +7,7 @@ export const getDocument = createAction(
 );
 
 export const storeDocument = createAction(
-  '[Document/Firebase] Store Document and Annotations',
+  '[Document/Firebase] Store Document',
   props<{ document: DocumentInterface }>()
 );
 

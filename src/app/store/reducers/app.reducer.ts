@@ -4,16 +4,16 @@ import {
   MetaReducer
 } from '@ngrx/store';
 
-import * as AnnotationFeature from '../annotation/reducers/annotation.reducer';
+import * as AnnotationFeature from '../annotations/reducers/annotations.reducer';
 import * as DocumentFeature from '../document/reducers/document.reducer';
 
 export interface State {
-  [AnnotationFeature.annotationFeatureKey]: AnnotationFeature.AnnotationState;
+  [AnnotationFeature.annotationsFeatureKey]: AnnotationFeature.AnnotationsState;
   [DocumentFeature.documentFeatureKey]: DocumentFeature.DocumentState;
 }
 
 export const appReducer: ActionReducerMap<State> = {
-  [AnnotationFeature.annotationFeatureKey]: AnnotationFeature.annotationReducer,
+  [AnnotationFeature.annotationsFeatureKey]: AnnotationFeature.annotationsReducer,
   [DocumentFeature.documentFeatureKey]: DocumentFeature.documentReducer
 };
 

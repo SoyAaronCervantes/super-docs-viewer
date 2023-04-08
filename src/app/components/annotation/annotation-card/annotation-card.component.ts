@@ -23,6 +23,6 @@ export class AnnotationCardComponent {
 
   deleteAnnotation(annotation: Annotation) {
     const documentId = this.documentParamsService.getDocumentIdFromUrl(this.activatedRoute.snapshot)!!;
-    this.annotationsFacadeService.deleteAnnotation = {annotation, documentId};
+    this.annotationsFacadeService.delete = {annotation, documentId};
   }
 }

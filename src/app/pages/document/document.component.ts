@@ -1,5 +1,6 @@
 import {Component, ElementRef, inject, ViewChild} from '@angular/core';
 import {DocumentMediatorService} from "../../services/mediator/document/document-mediator.service";
+import {AnnotationMediatorService} from "../../services/mediator/annotation/annotation-mediator.service";
 
 @Component({
   selector: 'app-document',
@@ -8,6 +9,7 @@ import {DocumentMediatorService} from "../../services/mediator/document/document
 })
 export class DocumentComponent {
   readonly #documentMediator = inject(DocumentMediatorService);
+  readonly #annotationsMediator = inject(AnnotationMediatorService);
 
   @ViewChild('coordinatesContainer', { static: true })
   elementRef!: ElementRef<HTMLHtmlElement>;
@@ -15,4 +17,5 @@ export class DocumentComponent {
   size = 100;
 
   document$ = this.#documentMediator.document;
+  annotations$ = this.#annotationsMediator.annotations$;
 }

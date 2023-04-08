@@ -8,5 +8,4 @@ export interface DocumentInterface {
   id: number;
   title: string;
   storage: Storage;
-  annotations: Annotation[];
 }

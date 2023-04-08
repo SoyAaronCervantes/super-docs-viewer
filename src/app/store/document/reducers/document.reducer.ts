@@ -9,7 +9,6 @@ export interface DocumentState extends DocumentInterface {}
 export const initialState: DocumentState = {
   id: 0,
   title: '',
-  annotations: [],
   storage: {
     url: ''
   }
@@ -21,7 +20,6 @@ export const documentReducer = createReducer(
     ...state,
     id: document.id,
     title: document.title,
-    annotations: document.annotations,
     storage: JSON.parse(JSON.stringify(document.storage))
   })),
 );

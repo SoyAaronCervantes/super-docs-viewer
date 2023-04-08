@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
-import {documentResolver} from "./resolver/document.resolver";
+import {documentResolver} from "./resolver/document/document.resolver";
 
 const routes: Routes = [
   {
