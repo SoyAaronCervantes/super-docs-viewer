@@ -1,6 +1,5 @@
-import {Component, ElementRef, Input} from '@angular/core';
-import {Annotation} from "../../../interfaces/annotations.interface";
-import {CoordinateContainerComponent} from "../coordinate-container/coordinate-container.component";
+import {Component, Input} from '@angular/core';
+import {Annotation} from "../../../interfaces/annotation.interface";
 
 @Component({
   selector: 'app-coordinate-annotation',

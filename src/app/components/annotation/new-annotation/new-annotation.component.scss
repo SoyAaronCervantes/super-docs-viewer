@@ -1,17 +1,14 @@
 :host {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin: 2rem;
+  gap: 2vw;
+  margin: 2vw;
+  width: 20rem;
 }
 
 .form--container {
   display: flex;
   flex-direction: column;
-}
-
-.form--fields--full-width {
-  width: 100%;
 }
 
 .image--preview {

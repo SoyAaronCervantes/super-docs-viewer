@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import {Point} from "@angular/cdk/drag-drop";
-import {Annotation} from "../../../interfaces/annotations.interface";
+import {Annotation} from "../../../interfaces/annotation.interface";
 
 export const updateCoords = createAction(
   '[Annotation] Update Coords',

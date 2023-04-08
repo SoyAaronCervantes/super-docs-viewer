@@ -1,7 +1,7 @@
 import {inject, Injectable} from '@angular/core';
-import {collection, collectionData, deleteDoc, doc, Firestore, setDoc} from "@angular/fire/firestore";
+import {collection, collectionData, deleteDoc, doc, setDoc} from "@angular/fire/firestore";
 import {from, Observable} from "rxjs";
-import {NewAnnotation, Annotation} from "../../../interfaces/annotations.interface";
+import {NewAnnotation, Annotation} from "../../../interfaces/annotation.interface";
 import {FirebaseFirestoreService} from "../base/firestore/firebase-firestore.service";
 
 @Injectable({

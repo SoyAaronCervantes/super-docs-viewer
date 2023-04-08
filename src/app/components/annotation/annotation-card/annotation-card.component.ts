@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 
-import {Annotation} from "../../../interfaces/annotations.interface";
+import {Annotation} from "../../../interfaces/annotation.interface";
 
 import {AnnotationsFacadeService} from "../../../services/facade/annotations/annotations-facade.service";
 import {DocumentParamsService} from "../../../services/params/document/document-params.service";

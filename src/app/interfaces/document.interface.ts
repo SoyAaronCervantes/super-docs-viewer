@@ -1,4 +1,4 @@
-import {Annotation} from "./annotations.interface";
+import {Annotation} from "./annotation.interface";
 
 interface Storage {
   url?: string;

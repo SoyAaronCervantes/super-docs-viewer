@@ -1,7 +1,7 @@
-import {Component, ElementRef, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {DocumentInterface} from "../../../interfaces/document.interface";
 import {MatSidenav} from "@angular/material/sidenav";
-import {Annotation} from "../../../interfaces/annotations.interface";
+import {Annotation} from "../../../interfaces/annotation.interface";
 import {ImagesStorageService} from "../../../services/firebase/images/images-storage.service";
 import {EMPTY, Observable} from "rxjs";
 
