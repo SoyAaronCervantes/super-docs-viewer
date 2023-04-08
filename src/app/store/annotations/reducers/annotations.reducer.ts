@@ -20,13 +20,13 @@ export const initialState: AnnotationsState = adapter.getInitialState({
 
 export const annotationsReducer = createReducer(
   initialState,
-  on(AnnotationsActions.addAnnotation,
+  on(AnnotationsActions.addedAnnotation,
     (state, action) => adapter.addOne(action.annotation, state)
   ),
   on(AnnotationsActions.upsertAnnotation,
     (state, action) => adapter.upsertOne(action.annotation, state)
   ),
-  on(AnnotationsActions.addAnnotations,
+  on(AnnotationsActions.addedAnnotations,
     (state, action) => adapter.addMany(action.annotations, state)
   ),
   on(AnnotationsActions.upsertAnnotations,

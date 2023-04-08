@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
-import {Annotation} from "../../../interfaces/annotation.interface";
+import {Annotation, NewAnnotation} from "../../../interfaces/annotation.interface";
 import {Point} from "@angular/cdk/drag-drop";
 
 export const setAnnotations = createAction(
@@ -8,7 +8,7 @@ export const setAnnotations = createAction(
   props<{ annotations: Annotation[] }>()
 );
 
-export const addAnnotation = createAction(
+export const addedAnnotation = createAction(
   '[Annotation/API] Add Annotation',
   props<{ annotation: Annotation }>()
 );
@@ -18,7 +18,7 @@ export const upsertAnnotation = createAction(
   props<{ annotation: Annotation }>()
 );
 
-export const addAnnotations = createAction(
+export const addedAnnotations = createAction(
   '[Annotation/API] Add Annotations',
   props<{ annotations: Annotation[] }>()
 );
@@ -62,8 +62,12 @@ export const setCoords = createAction(
   props<{ coordinates: Point }>()
 );
 
-
 export const annotationFailure = createAction(
   '[Annotation/API] Annotation Failure',
   props<{ error: any }>()
+);
+
+export const addAnnotation = createAction(
+  '[Annotation/API] Add Annotation',
+  props<{annotation: NewAnnotation, documentId: string, formData?: FormData}>()
 );

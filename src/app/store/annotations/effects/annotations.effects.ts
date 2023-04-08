@@ -9,7 +9,7 @@ import {AnnotationsFirestoreService} from "../../../services/firebase/annotation
 import {ImagesStorageService} from "../../../services/firebase/images/images-storage.service";
 
 import {catchError, concatMap, map} from "rxjs/operators";
-import {of, zip} from "rxjs";
+import {Observable, of, zip} from "rxjs";
 
 @Injectable()
 export class AnnotationsEffects {
@@ -32,6 +32,26 @@ export class AnnotationsEffects {
       map(([id]) => {
         this.#matSnackBar.open('Annotation deleted', 'Close', {duration: 2000})
         return AnnotationsActions.deletedAnnotation({id});
+      }),
+      catchError(error => of(AnnotationsActions.annotationFailure({ error })))
+    );
+  });
+
+  addAnnotation$ = createEffect(() => {
+    return this.#actions$.pipe(
+
+      ofType(AnnotationsActions.addAnnotation),
+      concatMap(({ annotation, formData, documentId }) => {
+        let obs$: Observable<any>[] = [];
+        const documentId$ = this.#annotationsFirestoreService.createAnnotation(annotation, documentId);
+        if (formData && annotation.image) { obs$ = [this.#imagesStorageService.uploadImage(formData, annotation.image)]; }
+        return zip([of(annotation), documentId$, ...obs$]);
+      }),
+      map(([annotation, id]) => {
+        this.#matSnackBar.open('Annotation added', 'Close', {duration: 2000})
+        return AnnotationsActions.addedAnnotation({
+          annotation: { ...annotation, id }
+        });
       }),
       catchError(error => of(AnnotationsActions.annotationFailure({ error })))
     );
