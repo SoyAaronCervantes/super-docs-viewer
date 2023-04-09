@@ -23,31 +23,31 @@ export const annotationsReducer = createReducer(
   on(AnnotationsActions.addedAnnotation,
     (state, action) => adapter.addOne(action.annotation, state)
   ),
-  on(AnnotationsActions.upsertAnnotation,
+  on(AnnotationsActions.upsertedAnnotation,
     (state, action) => adapter.upsertOne(action.annotation, state)
   ),
   on(AnnotationsActions.addedAnnotations,
     (state, action) => adapter.addMany(action.annotations, state)
   ),
-  on(AnnotationsActions.upsertAnnotations,
+  on(AnnotationsActions.upsertedAnnotations,
     (state, action) => adapter.upsertMany(action.annotations, state)
   ),
-  on(AnnotationsActions.updateAnnotation,
+  on(AnnotationsActions.updatedAnnotation,
     (state, action) => adapter.updateOne(action.annotation, state)
   ),
-  on(AnnotationsActions.updateAnnotations,
+  on(AnnotationsActions.updatedAnnotations,
     (state, action) => adapter.updateMany(action.annotations, state)
   ),
   on(AnnotationsActions.deletedAnnotation,
     (state, action) => adapter.removeOne(action.id, state)
   ),
-  on(AnnotationsActions.deleteAnnotations,
+  on(AnnotationsActions.deletedAnnotations,
     (state, action) => adapter.removeMany(action.ids, state)
   ),
   on(AnnotationsActions.setAnnotations,
     (state, action) => adapter.setAll(action.annotations, state)
   ),
-  on(AnnotationsActions.clearAnnotations,
+  on(AnnotationsActions.clearedAnnotations,
     state => adapter.removeAll(state)
   ),
   on(AnnotationsActions.setCoords, (state, { coordinates }) => ({

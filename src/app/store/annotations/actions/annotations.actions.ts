@@ -9,52 +9,46 @@ export const setAnnotations = createAction(
 );
 
 export const addedAnnotation = createAction(
-  '[Annotation/API] Add Annotation',
+  '[Annotation/API] Added Annotation',
   props<{ annotation: Annotation }>()
 );
 
-export const upsertAnnotation = createAction(
-  '[Annotation/API] Upsert Annotation',
+export const upsertedAnnotation = createAction(
+  '[Annotation/API] Upserted Annotation',
   props<{ annotation: Annotation }>()
 );
 
 export const addedAnnotations = createAction(
-  '[Annotation/API] Add Annotations',
+  '[Annotation/API] Added Annotations',
   props<{ annotations: Annotation[] }>()
 );
 
-export const upsertAnnotations = createAction(
-  '[Annotation/API] Upsert Annotations',
+export const upsertedAnnotations = createAction(
+  '[Annotation/API] Upserted Annotations',
   props<{ annotations: Annotation[] }>()
 );
 
-export const updateAnnotation = createAction(
-  '[Annotation/API] Update Annotation',
+export const updatedAnnotation = createAction(
+  '[Annotation/API] Updated Annotation',
   props<{ annotation: Update<Annotation> }>()
 );
 
-export const updateAnnotations = createAction(
-  '[Annotation/API] Update Annotations',
+export const updatedAnnotations = createAction(
+  '[Annotation/API] Updated Annotations',
   props<{ annotations: Update<Annotation>[] }>()
 );
-
-export const deleteAnnotation = createAction(
-  '[Annotation/API] Delete Annotation',
-  props<{ annotation: Annotation, documentId: string }>()
-);
-
 export const deletedAnnotation = createAction(
   '[Annotation/API] Deleted Annotation',
   props<{ id: string }>()
 );
 
-export const deleteAnnotations = createAction(
+export const deletedAnnotations = createAction(
   '[Annotation/API] Delete Annotations',
   props<{ ids: string[] }>()
 );
 
-export const clearAnnotations = createAction(
-  '[Annotation/API] Clear Annotations'
+export const clearedAnnotations = createAction(
+  '[Annotation/API] Cleared Annotations'
 );
 
 export const setCoords = createAction(
@@ -70,4 +64,9 @@ export const annotationFailure = createAction(
 export const addAnnotation = createAction(
   '[Annotation/API] Add Annotation',
   props<{annotation: NewAnnotation, documentId: string, formData?: FormData}>()
+);
+
+export const deleteAnnotation = createAction(
+  '[Annotation/API] Delete Annotation',
+  props<{ annotation: Annotation, documentId: string }>()
 );

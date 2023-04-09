@@ -57,7 +57,9 @@ export class NewAnnotationComponent {
     const { title, description, file  } = formGroup.value as AnnotationFormInterfaces;
 
     const formData = file ? this.#fileInputImageService.createFormData(file) : null;
-    const documentId = this.#documentParamsService.getDocumentIdFromUrl(this.#activatedRoute.snapshot)!!;
+    const documentId = this.#documentParamsService.getDocumentIdFromUrl(this.#activatedRoute.snapshot);
+
+    if (documentId === null) return;
 
     const newAnnotation: NewAnnotation = {
       title,
