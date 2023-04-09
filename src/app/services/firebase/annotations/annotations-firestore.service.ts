@@ -1,7 +1,7 @@
-import {inject, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {collection, collectionData, deleteDoc, doc, setDoc} from "@angular/fire/firestore";
-import {from, Observable} from "rxjs";
-import {NewAnnotation, Annotation} from "../../../interfaces/annotation.interface";
+import {from, Observable, of} from "rxjs";
+import {Annotation, NewAnnotation} from "../../../interfaces/annotation.interface";
 import {FirebaseFirestoreService} from "../base/firestore/firebase-firestore.service";
 
 @Injectable({
@@ -13,10 +13,11 @@ export class AnnotationsFirestoreService extends FirebaseFirestoreService {
     return collectionData(collectionReference, { idField: 'id' }) as Observable<Annotation[]>;
   }
 
-  createAnnotation(annotation: NewAnnotation, documentId: string): Observable<void> {
+  createAnnotation(annotation: NewAnnotation, documentId: string) {
     const collectionReference = this.getAnnotationsCollection(documentId);
     const documentReference = doc(collectionReference);
-    return from(setDoc(documentReference, annotation));
+    from(setDoc(documentReference, annotation));
+    return of(documentReference.id);
   }
 
   deleteAnnotation(annotation: Annotation, documentId: string): Observable<void> {
