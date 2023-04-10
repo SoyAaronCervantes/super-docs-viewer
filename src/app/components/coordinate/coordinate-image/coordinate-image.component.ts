@@ -35,8 +35,8 @@ export class CoordinateImageComponent {
       const diffY = Math.round(clientY - y);
 
       // Calculate relative coordinates for 100% zoom
-      const relativeX = Math.round(diffX / this.size * 100);
-      const relativeY = Math.round(diffY / this.size * 100);
+      const relativeX = Math.round((diffX * 100) / this.size );
+      const relativeY = Math.round( (diffY * 100) / this.size );
 
       // Update annotation store
       this.#annotationsFacadeService.coordinates = {x: relativeX, y: relativeY};
