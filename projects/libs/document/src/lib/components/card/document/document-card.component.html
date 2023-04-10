@@ -1,0 +1,14 @@
+<mat-card class="[ card ]">
+  <mat-card-header>
+    <mat-card-title class=" [ title-large ]">{{ document.title }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions>
+    <a
+      class="[ btn--full-width ] [ label-large ]"
+      mat-raised-button
+      color="primary"
+      [routerLink]="['/documents', document.id]">
+      View
+    </a>
+  </mat-card-actions>
+</mat-card>

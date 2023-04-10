@@ -1,6 +1,5 @@
 import {Component, ElementRef, inject, ViewChild} from '@angular/core';
-import {DocumentMediatorService} from "../../services/mediator/document/document-mediator.service";
-import {AnnotationMediatorService} from "../../services/mediator/annotation/annotation-mediator.service";
+import {DocumentMediatorService, AnnotationMediatorService} from "@libs/document";
 
 @Component({
   selector: 'app-document',
