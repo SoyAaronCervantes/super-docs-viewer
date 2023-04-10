@@ -4,26 +4,27 @@
   grid-template-rows: 1fr;
 }
 
-.annotations--container {
+.annotations-container {
   display: flex;
   grid-column: 1/2;
   grid-row: 1/2;
 }
 
-.annotations--content {
+.annotations-content {
   position: absolute;
   inline-size: fit-content;
   block-size: fit-content;
+  gap: 0.5rem;
 }
 
-.annotations--content > .annotation--card {
+.annotations-content > .annotation-card {
   display: none;
 }
 
-.annotations--content:hover {
+.annotations-content:hover {
   display: flex;
 
-  & > .annotation--card {
+  & > .annotation-card {
     display: flex;
   }
 }

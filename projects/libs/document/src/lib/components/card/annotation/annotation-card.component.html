@@ -1,16 +1,14 @@
-<mat-card [id]="annotation.id" class="[ annotation--card ]">
-  <mat-card-header>
-    <img
-      class="[ annotation--card--avatar ]"
-      [src]="url"
-      alt="Card Image"
-      mat-card-avatar>
-    <mat-card-title class="[ title-large ]">{{ annotation.title }}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content *ngIf="annotation.description">
-    <p class="[ body-medium ]">{{ annotation.description }}</p>
+<mat-card [id]="annotation.id" class="[ annotation-card ]">
+  <img
+    mat-card-image
+    class="[ annotation-card--image ]"
+    [src]="url"
+    alt="Annotation Image">
+  <mat-card-content class="[ annotation-card--margin ] [ annotation-card--content ]">
+    <mat-card-title class="[ title-medium ]">{{ annotation.title }}</mat-card-title>
+    <p *ngIf="annotation.description" class="[ body-medium ]">{{ annotation.description }}</p>
   </mat-card-content>
-  <mat-card-actions>
+  <mat-card-actions class="[ annotation-card--margin ]">
     <button mat-stroked-button color="accent" (click)="deleteAnnotation(annotation)">
       <span>Delete</span>
       <mat-icon>delete</mat-icon>

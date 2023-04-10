@@ -40,7 +40,7 @@ export class NewAnnotationComponent {
   readonly #renderer = inject(Renderer2);
 
   @Input()
-  sidenav: MatSidenav | null = null;
+  sidenav: MatSidenav;
 
   @ViewChild('imageElement', { static: false })
   imageElement: ElementRef<HTMLImageElement>;
