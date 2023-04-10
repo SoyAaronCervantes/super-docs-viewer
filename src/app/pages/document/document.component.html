@@ -1,21 +1,20 @@
 <mat-sidenav-container class="[ surface on-surface-text ]" autosize>
 
   <mat-sidenav #sidenav mode="side" position="end">
-    <app-new-annotation [sidenav]="sidenav"></app-new-annotation>
+    <libs-document-toolbar-add-annotation [sidenav]="sidenav"></libs-document-toolbar-add-annotation>
   </mat-sidenav>
 
   <mat-sidenav-content>
-
 
     <ng-container *ngrxLet="{document: document$, annotations: annotations$} | ngrxPush as vm; suspenseTpl: loading">
 
       <div class="[ container--document ]">
 
         <mat-toolbar class="[ toolbar ] [ surface on-surface-text ]">
-          <app-document-toolbar-content [document]="vm!!.document" [sidenav]="sidenav"></app-document-toolbar-content>
+          <libs-document-toolbar-content [document]="vm!!.document" [sidenav]="sidenav"></libs-document-toolbar-content>
         </mat-toolbar>
 
-        <app-coordinate-container
+        <libs-document-coordinates-container
           #coordinatesContainer
           [ngStyle]="{ 'inline-size': size + '%' }"
           [document]="vm!!.document"
@@ -23,9 +22,9 @@
           [sidenav]="sidenav"
           [size]="size"
           class="[ coordinates--container ]">
-        </app-coordinate-container>
+        </libs-document-coordinates-container>
 
-        <app-zoom-buttons [(size)]="size"></app-zoom-buttons>
+        <libs-document-buttons-zoom [(size)]="size"></libs-document-buttons-zoom>
 
       </div>
 
