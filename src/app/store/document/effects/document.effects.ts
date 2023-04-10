@@ -1,6 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {createEffect, ofType } from '@ngrx/effects';
-import {catchError, map, concatMap, mergeMap} from 'rxjs/operators';
+import {catchError, concatMap, mergeMap} from 'rxjs/operators';
 
 import {DocumentsFirestoreService} from "../../../services/firebase/documents/documents-firestore.service";
 import {EffectStoreService} from "../../../services/store/effect/effect-store.service";
