@@ -4,23 +4,23 @@
   [document]="document">
 </libs-document-coordinates-image>
 
-<div #annotationContainer class="[ annotations--container ]">
+<div #annotationContainer class="[ annotations-container ]">
 
   <div
-    class="[ annotations--content ]"
+    class="[ annotations-content ]"
     *ngFor="let annotation of annotations;"
     cdkDrag
     [cdkDragBoundary]="'.coordinates--container'"
-    [cdkDragFreeDragPosition]="getAnnotationsPosition(annotation.position, size)"
+    [cdkDragFreeDragPosition]="annotation.position"
     (mouseover)="getImageUrl(annotation)">
 
     <libs-document-coordinates-annotation
-      class="[ annotation--button ]"
+      class="[ annotation-button ]"
       [annotation]="annotation">
     </libs-document-coordinates-annotation>
 
     <libs-document-card-annotation
-      class="[ annotation--card ]"
+      class="[ annotation-card ]"
       [url]="(url$ | async) || 'https://via.placeholder.com/150'"
       [annotation]="annotation">
     </libs-document-card-annotation>

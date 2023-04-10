@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start:apps:doc-viewer": "ng serve",
     "build:libs:document": "ng build @libs/document",
     "build:apps:doc-viewer": "ng build",
     "build:prod": "yarn build:libs:document; ng build --configuration production",
     "deploy": "yarn build:prod && firebase deploy",
-    "watch": "ng build --watch --configuration development",
+    "watch:apps:doc-viewer": "ng build --watch --configuration development",
+    "watch:libs:document": "ng build --watch @libs/document",
     "test": "ng test"
   },
   "private": true,

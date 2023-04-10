@@ -1,7 +1,25 @@
-.annotation--card {
+.annotation-card {
   inline-size: fit-content;
+  border-radius: 1rem;
+  width: 15dvw;
+  gap: 1rem;
 
-  &--avatar {
-    margin-bottom: 0;
+  &--image {
+    height: 15dvw;
+    object-fit: cover;
+  }
+
+  &--margin {
+    margin-inline: 1rem;
+  }
+
+  & > .annotation-card--margin:last-of-type {
+    margin-block-end: 1rem;
+  }
+
+  &--content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 }
