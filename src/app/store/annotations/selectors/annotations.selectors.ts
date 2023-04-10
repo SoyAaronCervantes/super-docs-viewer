@@ -1,4 +1,4 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createSelector } from '@ngrx/store';
 import {annotationsFeature} from "../reducers/annotations.reducer";
 
 const {

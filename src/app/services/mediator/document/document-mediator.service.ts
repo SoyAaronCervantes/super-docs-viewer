@@ -4,7 +4,6 @@ import {DocumentState} from "../../../store/document/reducers/document.reducer";
 import * as DocumentSelectors from "../../../store/document/selectors/document.selectors";
 import {Observable} from "rxjs";
 import {DocumentInterface} from "../../../interfaces/document.interface";
-import {Annotation} from "../../../interfaces/annotation.interface";
 
 @Injectable({
   providedIn: 'root'

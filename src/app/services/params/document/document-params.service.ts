@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ParamsRouteService} from "../base/params-route.service";
-import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
+import {ActivatedRouteSnapshot} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'

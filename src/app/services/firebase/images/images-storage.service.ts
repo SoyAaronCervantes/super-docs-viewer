@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {deleteObject, getDownloadURL, getStorage, ref, uploadBytes} from "@angular/fire/storage";
-import {first, from, share, shareReplay} from "rxjs";
+import {deleteObject, uploadBytes} from "@angular/fire/storage";
+import {first, from, share} from "rxjs";
 import {FirebaseStorageService} from "../base/storage/firebase-storage.service";
 
 @Injectable({

@@ -1,5 +1,3 @@
-import {Annotation} from "./annotation.interface";
-
 interface Storage {
   url?: string;
 }
