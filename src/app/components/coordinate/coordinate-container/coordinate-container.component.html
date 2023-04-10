@@ -4,14 +4,14 @@
   [document]="document">
 </app-coordinate-image>
 
-<div class="[ annotations--container ]">
+<div #annotationContainer class="[ annotations--container ]">
 
   <div
     class="[ annotations--content ]"
     *ngFor="let annotation of annotations;"
     cdkDrag
     [cdkDragBoundary]="'.coordinates--container'"
-    [cdkDragFreeDragPosition]="annotation.position"
+    [cdkDragFreeDragPosition]="getAnnotationsPosition(annotation.position, size)"
     (mouseover)="getImageUrl(annotation)">
 
     <app-coordinate-annotation
